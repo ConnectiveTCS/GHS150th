@@ -38,6 +38,9 @@
                 <li><a href="/events"
                         class="{{ request()->is('/events') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Events</a>
                 </li>
+                <li><a href="/reservations"
+                        class="{{ request()->is('/reservations') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Reservations</a>
+                </li>
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                     @csrf

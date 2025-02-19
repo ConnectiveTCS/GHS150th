@@ -60,7 +60,7 @@ class ReservationController extends Controller
         $reservation->is_attending = $request->is_attending;
         $reservation->is_paid = $request->is_paid;
         $reservation->save();
-        return response()->json($reservation);
+        return redirect()->route('reservations.index');
     }
 
     public function destroy($id)

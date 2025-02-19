@@ -51,9 +51,9 @@ Route::get('/alumni', function () {
     return view('alumni.index');
 });
 // Reservations
-Route::get('/reservations/create', [ReservationController::class, 'create']);
+Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
 // Update the POST route to add a name
-Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+Route::post('/reserve', [ReservationController::class, 'store'])->name('reservations.store');
 
 Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit']);
 Route::put('/reservations/{id}', [ReservationController::class, 'update']);
@@ -78,11 +78,11 @@ Route::middleware('auth')->group(function () {
         return view('club_150.project_card.index', compact('projectCards'));
     })->name('projectCards');
     // Route::resource('reservations', App\Http\Controllers\ReservationController::class);
-    Route::get('/reservations', [ReservationController::class, 'index']);
-    Route::get('/reservations/{id}', [ReservationController::class, 'show']);
-    Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit']);
-    Route::put('/reservations/{id}', [ReservationController::class, 'update']);
-    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy']);
+    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+    Route::get('/reservations/{id}', [ReservationController::class, 'show'])->name('reservations.show');
+    Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
+    Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name('reservations.update');
+    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
 
 
