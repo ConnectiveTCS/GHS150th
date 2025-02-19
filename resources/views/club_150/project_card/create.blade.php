@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="max-w-xl mx-auto my-6 p-6 bg-white rounded shadow">
+    <div class="max-w-xl w-full mx-auto my-6 p-4 sm:p-6 md:p-8 bg-white rounded shadow">
         <h2 class="text-2xl font-bold mb-4">Create Project Card</h2>
         <form action="{{ route('project-cards.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -43,15 +43,15 @@
                 <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                 {{-- <input type="text" id="status" name="status"
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"> --}}
-                    <select name="status" id="status" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                        <option value="current">Current</option>
-                        <option value="upcoming">Upcoming</option>
-                        <option value="completed">Completed</option>
-                    </select>
-            </div>   
-            <div class="mt-6"> 
-                <button type="submit"
-                    class="w-full bg-black text-white px-4 py-2 rounded hover:bg-slate-600">
+                <select name="status" id="status"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="current">Current</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="w-full bg-black text-white px-4 py-2 rounded hover:bg-slate-600">
                     Create Project Card
                 </button>
             </div>
