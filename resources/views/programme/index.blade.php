@@ -11,7 +11,7 @@
         ],
         'button2' => [
             'component' => 'components.button',
-            'href' => '#',
+            'href' => '/reservations/create',
             'content' => 'RSVP for Banquet',
             'bgColor' => '#262A40',
             'mt' => 2,

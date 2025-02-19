@@ -4,6 +4,7 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectCardsController;
 use App\Http\Controllers\ProgrammeController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -49,6 +50,16 @@ Route::get('/pillar_project', function () {
 Route::get('/alumni', function () {
     return view('alumni.index');
 });
+// Reservations
+Route::get('/reservations/create', [ReservationController::class, 'create']);
+// Update the POST route to add a name
+Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+
+Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit']);
+Route::put('/reservations/{id}', [ReservationController::class, 'update']);
+
+// Route::resource('reservations', App\Http\Controllers\ReservationController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -66,6 +77,14 @@ Route::middleware('auth')->group(function () {
         $projectCards = \App\Models\ProjectCards::all();
         return view('club_150.project_card.index', compact('projectCards'));
     })->name('projectCards');
+    // Route::resource('reservations', App\Http\Controllers\ReservationController::class);
+    Route::get('/reservations', [ReservationController::class, 'index']);
+    Route::get('/reservations/{id}', [ReservationController::class, 'show']);
+    Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit']);
+    Route::put('/reservations/{id}', [ReservationController::class, 'update']);
+    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy']);
+
+
 
     // Events CRUD routes
     Route::resource('/events', App\Http\Controllers\EventsController::class);
