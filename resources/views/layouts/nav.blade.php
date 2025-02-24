@@ -4,7 +4,7 @@
             <img src="{{ asset('assets/GHS_Badge.png') }}" alt="GHS Logo" class="h-12 w-12 md:h-16 md:w-16">
         </a>
         <!-- Mobile menu button with ARIA attributes -->
-        <button class="md:hidden text-white hover:text-[#DE2413] focus:outline-none" onclick="toggleMenu()"
+        <button class="md:hidden text-white hover:text-[#DE2413] focus:outline-none absolute right-[16px]" onclick="toggleMenu()"
             aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
