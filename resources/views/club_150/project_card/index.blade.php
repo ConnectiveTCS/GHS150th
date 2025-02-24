@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 min-h-[80vh]">
-        <div class="flex justify-between items-center mb-6">
+        <div class="flex flex-col md:flex-col gap-2 justify-between items-center mb-6">
             <h2 class="text-3xl font-bold">Project Cards</h2>
             <a href="/create" class="bg-black text-white px-4 py-2 rounded hover:bg-slate-600">
                 Create New Card

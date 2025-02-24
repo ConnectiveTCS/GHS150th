@@ -32,7 +32,7 @@
             </ul>
             {{-- If user is logged in they can view this menu --}}
             @auth
-                <h1 class="font-bold text-red-500 text-center text-lg">Admin Menu</h1>
+                <h1 class="font-bold text-red-500 text-center hidden md:block text-lg">Admin Menu</h1>
                 <ul class="hidden md:flex flex-row items-center justify-center gap-4">
                     <li><a href="/projects"
                             class="{{ request()->is('/projects') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Projects</a>
