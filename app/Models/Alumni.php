@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Alumni extends Model
 {
     //
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'user_id',
         'first_name',

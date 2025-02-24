@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('first_name')->nullable();
-            $table->string('Last_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             // Class of: Year only
@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('current_location')->nullable();
             $table->longText('bio')->nullable();
             $table->longText('profile_picture')->nullable();
-
         });
     }
 

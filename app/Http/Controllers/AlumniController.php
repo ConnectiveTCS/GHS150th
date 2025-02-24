@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AlumniController extends Controller
 {
@@ -32,7 +33,7 @@ class AlumniController extends Controller
             $bio = $alumni->bio;
             $short_bio[$bio] = substr($bio, 0, 100);
         }
-        
+
         return view('alumni.alumni_admin.index', compact('alumnis', 'grouped', 'years', 'short_bio'));
     }
 
@@ -90,15 +91,19 @@ class AlumniController extends Controller
             'current_position'  => 'required|string|max:255',
             'current_location'  => 'required|string|max:255',
             'bio'               => 'required|string',
-            'profile_picture'   => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:8048',
+            'profile_picture'   => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:8048',
         ]);
-        if ($request->hasFile('profile_picture')) {
-            $validated['profile_picture'] = $request->file('profile_picture')->store('alumni', 'public');
-        }
-        dd($validated);
-        $alumniProfile->update($validated);
 
-        return redirect()->route('alumni.index');
+        try {
+            if ($request->hasFile('profile_picture')) {
+                $validated['profile_picture'] = $request->file('profile_picture')->store('alumni', 'public');
+            }
+            $alumniProfile->update($validated);
+            return redirect()->route('alumni.index');
+        } catch (\Exception $e) {
+            Log::error('Error updating alumni profile', ['exception' => $e]);
+            return back()->withErrors('An error occurred while updating the profile.');
+        }
     }
 
     public function destroy($id)
