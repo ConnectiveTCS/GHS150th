@@ -25,18 +25,18 @@ class AlumniController extends Controller
             $year = $alumni->class_of;
             $grouped[$year][] = $alumni;
         }
-        return view('alumni.index', compact('alumnis', 'grouped', 'years'));
+        return view('alumni.alumni_admin.index', compact('alumnis', 'grouped', 'years'));
     }
 
     public function create()
     {
-        return view('alumni.create');
+        return view('alumni.alumni_admin.create');
     }
 
     public function edit($id)
     {
         $alumni = Alumni::find($id);
-        return view('alumni.edit', compact('alumni'));
+        return view('alumni.alumni_admin.edit', compact('alumni'));
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class AlumniController extends Controller
         }
         Alumni::create($data);
         
-        return redirect()->route('alumni.index');
+        return redirect()->route('alumni.alumni_admin.index');
     }
 
     public function update(Request $request, $id)
@@ -84,12 +84,12 @@ class AlumniController extends Controller
         }
         Alumni::find($id)->update($data);
         
-        return redirect()->route('alumni.index');
+        return redirect()->route('alumni.alumni_admin.index');
     }
 
     public function destroy($id)
     {
         Alumni::find($id)->delete();
-        return redirect()->route('alumni.index');
+        return redirect()->route('alumni.alumni_admin.index');
     }
 }

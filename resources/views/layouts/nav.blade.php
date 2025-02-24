@@ -43,6 +43,9 @@
                     <li><a href="/reservations"
                             class="{{ request()->is('/reservations') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Reservations</a>
                     </li>
+                    <li><a href="{{ route('alumni.create') }}"
+                            class="{{ request()->is('/reservations') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni Network</a>
+                    </li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -89,6 +92,10 @@
                     <li>
                         <a href="/reservations"
                             class="block w-full px-4 py-2 hover:bg-gray-700 hover:text-[#DE2413]">Reservations</a>
+                    </li>
+                    <li>
+                        <a href="/alumni_network"
+                            class="block w-full px-4 py-2 hover:bg-gray-700 hover:text-[#DE2413]">Alumni Network</a>
                     </li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
