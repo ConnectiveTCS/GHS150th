@@ -8,6 +8,7 @@
             'content' => 'Join the Alumni Network',
             'bgColor' => '#DE2413',
             'mt' => 2,
+            'hiddenBTN2' => 'block',
         ],
         'button2' => [
             'component' => 'components.button',
@@ -15,6 +16,7 @@
             'content' => 'Share Your Story',
             'bgColor' => '#262A40',
             'mt' => 2,
+            'hiddenBTN2' => 'block',
         ],
         'h1' => 'Reconnect. Remember. Relive.',
         // 'p' => 'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.'
