@@ -25,11 +25,11 @@
         'p' =>
             'As part of the Girls High School family, your journey doesn’t end after graduation. The friendships, experiences, and values you gained continue for a lifetime. Welcome back!',
     ])
-    {{-- Programme --}}
-    <section class="bg-white flex flex-col justify-start items-start px-[50px] py-[100px] min-h-[100vh] relative"
+    {{-- Alumni Main --}}
+    <section class="bg-white flex flex-col justify-start items-start px-2 md:px-[50px] py-[100px] md:min-h-[100vh] relative"
         style="background-image:url('{{ asset('assets/BGText.png') }}'); background-size: cover; background-position: center;">
-        <div class="w-full place-items-center my-auto py-4 px-4 rounded-md text-white ">
-            <p class="text-center text-black w-[60%] text-7xl tangerine-regular">
+        <div class="w-full place-items-center my-auto py-4 md:px-4 rounded-md text-white ">
+            <p class="text-center text-black md:w-[60%] text-2xl md:text-7xl tangerine-regular">
                 Our alumni network is more than just a directory – it’s a lifelong sisterhood. By staying connected, you
                 gain access to exclusive events, networking opportunities, and a chance to give back to the school that
                 shaped you.
@@ -37,15 +37,15 @@
             </p>
         </div>
     </section>
-    <section class="bg-[#262A40] text-white flex flex-col justify-center items-center px-[50px] py-[100px] min-h-[50vh] mb-6">
-        <h2 class="montagu-slab-h1 text-4xl mb-2 text-center w-[40%] text-balance">
+    <section class="bg-[#262A40] text-white flex flex-col justify-center items-center md:px-[50px] px-2 py-[100px] min-h-[50vh] mb-6">
+        <h2 class="montagu-slab-h1 text-3xl md:text-4xl mb-2 text-center md:w-[40%] text-balance">
             Be Part of the GHS Alumni Network
         </h2>
-        <p class="text-center text-2xl md:text-xl text-pretty w-[50%] mb-4">
+        <p class="text-center text-2xl md:text-xl text-pretty md:w-[50%] mb-4">
             Sign up today to receive exclusive alumni newsletters, event invites, and school updates. Reconnect with old
             friends, make new ones, and stay close to the school that helped shape you.
         </p>
-        <a href="{{ $href ?? '#' }}"
+        <a href="{{ $href ?? route('alumni.create') }}"
             class="py-2 px-4 bg-[{{ $bgColor ?? '#DE2413' }}] text-white hover:bg-white hover:text-[#DE2413] transition-all mt-{{ $mt ?? 1 }}">Join the Alumni Network</a>
     </section>
 
