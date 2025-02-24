@@ -26,7 +26,7 @@
                 <li><a href="/pillar_project"
                         class="{{ request()->is('/pillar_project') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Pillar
                         Project</a></li>
-                <li><a href="/alumni"
+                <li><a href="{{ route('alumni.index') }}"
                         class="{{ request()->is('/alumni') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni</a>
                 </li>
             </ul>
@@ -43,7 +43,7 @@
                     <li><a href="/reservations"
                             class="{{ request()->is('/reservations') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Reservations</a>
                     </li>
-                    <li><a href="{{ route('alumni.create') }}"
+                    <li><a href="{{ route('alumni.index') }}"
                             class="{{ request()->is('/reservations') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni Network</a>
                     </li>
                     <li>
