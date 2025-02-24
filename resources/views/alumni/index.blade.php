@@ -12,7 +12,7 @@
         ],
         'button2' => [
             'component' => 'components.button',
-            'href' => '#',
+            'href' => 'https://www.facebook.com/qtghs',
             'content' => 'Share Your Story',
             'bgColor' => '#262A40',
             'mt' => 2,
