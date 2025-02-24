@@ -25,16 +25,15 @@
         'hiddenBTN' => 'block',
     ])
     {{-- Red Square --}}
-    <section class="bg-white h-[70vh] flex flex-col justify-center items-center"
-        style="background-image: url('') }}'); background-size: cover; background-position: center;">
+    <section class="bg-white h-auto sm:h-[70vh] flex flex-col justify-center items-center py-[50px]">
         {{-- Overlay --}}
-        <div class="w-screen h-[70vh] z-10 heroBG absolute"></div>
+        <div class="w-screen h-auto sm:h-[70vh] z-10 heroBG absolute"></div>
         {{-- Center Content --}}
-        <div class="bg-[#DE2413] text-white text-center py-8 px-8 w-full md:w-2/3 lg:w-1/3 z-20">
-            <h2 class="montagu-slab-h1 text-4xl mb-2">
+        <div class="bg-[#DE2413] text-white text-center py-8 px-4 w-11/12 sm:w-full md:w-2/3 lg:w-1/3 z-20">
+            <h2 class="montagu-slab-h1 text-2xl sm:text-4xl mb-2">
                 150 Years of Tradition, Excellence, and Community.
             </h2>
-            <p class="text-5xl tangerine-regular">
+            <p class="text-base sm:text-xl tangerine-regular">
                 For 150 years, Girls High School has been a beacon of learning, leadership, and legacy. This year, we
                 invite you to celebrate this incredible milestone with us through events that honor our history, our
                 people, and our community.
