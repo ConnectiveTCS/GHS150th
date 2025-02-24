@@ -8,6 +8,7 @@
             'content' => 'Download Full Programme',
             'bgColor' => '#DE2413',
             'mt' => 2,
+            'hiddenBTN2' => 'block',
         ],
         'button2' => [
             'component' => 'components.button',
@@ -15,6 +16,7 @@
             'content' => 'RSVP for Banquet',
             'bgColor' => '#262A40',
             'mt' => 2,
+            'hiddenBTN2' => 'block',
         ],
         'h1' => 'A Celebration 150 Years in the Making',
         // 'p' => 'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.'
@@ -24,7 +26,7 @@
             'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.',
     ])
     {{-- Programme --}}
-    <section class="bg-white flex flex-col justify-start items-start px-[50px] py-[100px]"
+    <section class="bg-white flex flex-col justify-start items-start px-[10px] md:px-[50px] py-[100px]"
         style="background-size: cover; background-position: center;">
         <h1 class="montagu-slab-h1 text-4xl mb-2 text-left w-[40%]">Programme
         </h1>
@@ -36,9 +38,9 @@
             {{-- Grouped Events Listing --}}
             <div class="mx-auto px-4 w-full bg-white rounded-lg">
                 @foreach ($grouped as $month => $days)
-                    <h2 class="text-3xl font-bold my-4">{{ $month }}</h2>
+                    <h2 class="text-3xl font-bold md:my-4">{{ $month }}</h2>
                     @foreach ($days as $day => $eventsForDay)
-                        <h3 class="text-2xl font-semibold my-2">{{ $day }}</h3>
+                        <h3 class="text-2xl font-semibold md:my-2">{{ $day }}</h3>
                         @foreach ($eventsForDay as $event)
                             @include('components.eventCards', ['event' => $event])
                             <hr class="border-red-500 my-4">
