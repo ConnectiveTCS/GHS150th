@@ -47,7 +47,7 @@ Route::get('/pillar_project', function () {
     return view('pillar_project.index');
 });
 // Alumni
-Route::get('/alumni', function () {
+Route::get('/alumni_', function () {
     return view('alumni.index');
 });
 // Reservations
