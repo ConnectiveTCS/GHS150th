@@ -52,8 +52,6 @@
                 <!-- Garden Revival -->
                 @foreach ($projectCards as $card)
                     @include('components.projectCards')
-
-                    <hr class=" border-red-500 w-[70%] justify-self-center my-8">
                 @endforeach
             </div>
         </div>
