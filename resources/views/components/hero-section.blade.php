@@ -16,7 +16,7 @@
         <h1 class="montagu-slab-h1 my-4 text-center text-2xl md:text-5xl text-pretty">
             {{ $h1 ?? 'Reuniting Generations, Rekindling Memories.' }}
         </h1>
-        <p class="text-center mb-4 text-lg md:text-xl text-pretty md:w-[82%] text-balance">
+        <p class="text-center mb-4 text-lg md:text-xl md:w-[82%] text-balance">
             {{ $p ?? 'Join us for a year-long celebration of our 150th anniversary, featuring events, reunions, and' }}
         </p>
         <div class="flex flex-row gap-1">
