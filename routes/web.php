@@ -84,7 +84,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name('reservations.update');
     Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
-
+    // Alumni CRUD routes
+    Route::resource('/alumni', App\Http\Controllers\AlumniController::class);
 
     // Events CRUD routes
     Route::resource('/events', App\Http\Controllers\EventsController::class);
