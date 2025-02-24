@@ -13,13 +13,14 @@
         <p class="text-center text-2xl md:text-xl text-pretty w-[82%]">
             {{ $p ?? 'Join us for a year-long celebration of our 150th anniversary, featuring events, reunions, and' }}
         </p>
-        <div class="flex flex-row gap-1">
+        <div class="flex flex-row gap-1 items-center justify-center">
             @if(isset($button1))
                 @include($button1['component'], $button1)
             @endif
             @if(isset($button2))
                 @include($button2['component'], $button2)
             @endif
+            <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button" class="min-h-[40px] block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Donate</button>
         </div>
     </div>
 </section>
