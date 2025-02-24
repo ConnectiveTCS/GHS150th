@@ -26,8 +26,8 @@
             @if (isset($button2))
                 @include($button2['component'], $button2)
             @endif
-            <button data-popover-target="popover-default" type="button"
-                class="py-2 px-4 bg-[{{ $bgColor ?? '#DE2413' }}] text-white hover:bg-white hover:text-[#DE2413] transition-all mt-{{ $mt ?? 1 }} {{ $hiddenBTN ?? 'hidden' }}">Donate</button>
+            <button data-modal-target="default-modal" data-modal-toggle="default-modal"  type="button"
+                class="py-2 px-4 text-red-500 hover:bg-white hover:text-[#DE2413] transition-all mt-{{ $mt ?? 1 }} {{ $hiddenBTN ?? 'hidden' }}">{{ $popupBTN ?? 'Donate' }}</button>
         </div>
     </div>
 </section>

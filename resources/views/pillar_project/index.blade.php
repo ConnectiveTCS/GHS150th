@@ -8,6 +8,7 @@
             'content' => 'Reserve Your Spot',
             'bgColor' => '#DE2413',
             'mt' => 2,
+            'hiddenBTN2' => 'block',
         ],
         'button2' => [
             'component' => 'components.button',
@@ -15,37 +16,109 @@
             'content' => 'See the Pillar Map',
             'bgColor' => '#262A40',
             'mt' => 2,
+            'hiddenBTN2' => 'hidden',
         ],
         'h1' => 'Join the Pillar Project',
         // 'p' => 'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.'
         'hideImg' => 'hidden',
+        'hiddenBTN' => 'block',
         'topPHeading' => 'Your Legacy, Set in Stone',
+        'popupBTN' => 'See The Pillar Map',
+    
         'p' =>
             'For 150 years, our pillars have stood strong, bearing witness to generations of GHS students. Now, you can make history by engraving your name on a pillar and ensuring your place in the school’s story forever.',
     ])
+
+    {{-- Picture Map --}}
+
+
     {{-- Programme --}}
-    <section class="bg-white flex flex-col justify-start items-start px-[50px] py-[100px] min-h-[100vh] relative"
+    <section
+        class="bg-white flex flex-col justify-start items-start px-4 md:px-[50px] py-8 md:py-[100px] min-h-[100vh] relative"
         style="background-size: cover; background-position: center;">
-        <h1 class="montagu-slab-h1 text-4xl mb-2 text-left w-[40%]">What is the Pillar Project?
+        <h1 class="montagu-slab-h1 text-4xl mb-2 text-left w-full md:w-[40%]">What is the Pillar Project?
         </h1>
-        <div class="bg-[#0F1522] w-full mb-4 grid grid-cols-2 place-items-center my-4 py-4 px-4 rounded-md text-white">
-            <div class="bg-[#262A40]mb-4 grid place-items-center my-4 border-r-2 ">
-                <h2 class="montagu-slab-h1 text-3xl text-center mb-3 text-balance">The Pillars of Our Past, The Foundation of Our Future</h2>
-                <p class="text-center mb-3 w-[80%] text-xl">The Pillars of GHS have long been a symbol of strength, unity, and tradition. Through the Pillar
-                    Project, alumni can cement their connection to this legacy with a personalized engraving. Each name
+        <div
+            class="bg-[#0F1522] w-full mb-4 grid grid-cols-1 md:grid-cols-2 place-items-center my-4 py-4 px-4 rounded-md text-white">
+            <div class=" mb-4 grid place-items-center my-4 border-r-2 ">
+                <h2 class="montagu-slab-h1 text-3xl text-center mb-3 text-balance">The Pillars of Our Past, The
+                    Foundation of Our Future</h2>
+                <p class="text-center mb-3 w-[80%] text-xl">The Pillars of GHS have long been a symbol of
+                    strength,
+                    unity, and tradition. Through the Pillar
+                    Project, alumni can cement their connection to this legacy with a personalized engraving.
+                    Each name
                     represents a story, a journey, a contribution to the school’s 150-year heritage.</p>
                 @include('components.button', [
                     'href' => '#',
                     'content' => 'Engrave Your Name',
                     'bgColor' => '#DE2413',
                     'mt' => 2,
+                    'hiddenBTN2' => 'block',
                 ])
             </div>
             <div class="flex items-center justify-center relative">
                 <img src="{{ asset('assets/Frame 104.png') }}" alt="" class=" md:w-full">
             </div>
         </div>
-        </section>
+    </section>
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+        class="hiddend overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)]">
+        <div class="relative p-4 w-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                <!-- Modal header -->
+                <div
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Banking Details
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="bg-gray-100 rounded-lg p-4">
 
-
+                        <!-- SWIFT Code -->
+                        <div>
+                            <!-- Image Map Generated by http://www.image-map.net/ -->
+                            <img src="{{ asset('assets/pillarmap.png') }}"
+                                usemap="#image-map">
+                                <div class="overlay" style="position: absolute; top: 580px; left: 240px; width: 20px; height: 20px; background: rgba(255,0,0,0.3); pointer-events: none;"></div>
+                            <map name="image-map" class="bg-white">
+                                <area target="_blank" alt="" title="" href="" coords="212,481,13"
+                                    shape="circle">
+                                <area target="_blank" alt="" title="" href="" coords="231,441,14"
+                                    shape="circle">
+                                <area target="_blank" alt="" title="" href="" coords="251,401,14"
+                                    shape="circle">
+                            </map>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text);
+                }
+            </script>
+        </div>
+    </div>
+    </div>
+    <style>
+        area {
+            background-color: rgba(255, 0, 0, 0.3);
+            z-index: 100;
+            display: block;
+        }
+        </style>
 </x-app-layout>

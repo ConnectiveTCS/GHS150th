@@ -64,9 +64,29 @@
                         <div class="mb-4">
                             <label class="block font-semibold text-gray-700">Bank Name:</label>
                             <div class="flex items-center">
-                                <input type="text" value="{{ $bankName ?? 'Placeholder Bank Name' }}"
+                                <input type="text" value="{{ $bankName ?? 'ABSA' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $bankName ?? 'Placeholder Bank Name' }}')"
+                                <button onclick="copyToClipboard('{{ $bankName ?? 'ABSA' }}')"
+                                    class="bg-red-500 text-white px-3 rounded">Copy</button>
+                            </div>
+                        </div>
+                        <!-- Account Type -->
+                        <div class="mb-4">
+                            <label class="block font-semibold text-gray-700">Bank Account Type:</label>
+                            <div class="flex items-center">
+                                <input type="text" value="{{ $accountType ?? 'Cheque Account' }}"
+                                    class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
+                                <button onclick="copyToClipboard('{{ $accountType ?? 'Cheque Account' }}')"
+                                    class="bg-red-500 text-white px-3 rounded">Copy</button>
+                            </div>
+                        </div>
+                        <!-- Account Name -->
+                        <div class="mb-4">
+                            <label class="block font-semibold text-gray-700">Bank Account Name:</label>
+                            <div class="flex items-center">
+                                <input type="text" value="{{ $accountName ?? 'Old Quenstownia Association' }}"
+                                    class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
+                                <button onclick="copyToClipboard('{{ $accountName ?? 'Old Quenstownia Association' }}')"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -74,19 +94,9 @@
                         <div class="mb-4">
                             <label class="block font-semibold text-gray-700">Bank Account Number:</label>
                             <div class="flex items-center">
-                                <input type="text" value="{{ $accountNumber ?? '000000000' }}"
+                                <input type="text" value="{{ $accountNumber ?? '711651284' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $accountNumber ?? '000000000' }}')"
-                                    class="bg-red-500 text-white px-3 rounded">Copy</button>
-                            </div>
-                        </div>
-                        <!-- Branch Number -->
-                        <div class="mb-4">
-                            <label class="block font-semibold text-gray-700">Branch Number:</label>
-                            <div class="flex items-center">
-                                <input type="text" value="{{ $branchNumber ?? '000' }}"
-                                    class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $branchNumber ?? '000' }}')"
+                                <button onclick="copyToClipboard('{{ $accountNumber ?? '711651284' }}')"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -102,9 +112,9 @@
                         <div>
                             <label class="block font-semibold text-gray-700">SWIFT Code:</label>
                             <div class="flex items-center">
-                                <input type="text" value="{{ $swiftCode ?? 'SWFTCODE' }}"
+                                <input type="text" value="{{ $swiftCode ?? 'ABSAZAJJ' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $swiftCode ?? 'SWFTCODE' }}')"
+                                <button onclick="copyToClipboard('{{ $swiftCode ?? 'ABSAZAJJ' }}')"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
