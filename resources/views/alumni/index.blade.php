@@ -4,7 +4,7 @@
         'bg' => asset('assets/AlumniBG.webp'),
         'button1' => [
             'component' => 'components.button',
-            'href' => '#',
+            'href' => '{{ route('alumni.create') }}',
             'content' => 'Join the Alumni Network',
             'bgColor' => '#DE2413',
             'mt' => 2,
