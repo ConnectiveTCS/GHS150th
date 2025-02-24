@@ -26,7 +26,7 @@
                 <li><a href="/pillar_project"
                         class="{{ request()->is('/pillar_project') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Pillar
                         Project</a></li>
-                <li><a href="{{ route('alumni.index') }}"
+                <li><a href="/alumni_"
                         class="{{ request()->is('/alumni') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni</a>
                 </li>
             </ul>
