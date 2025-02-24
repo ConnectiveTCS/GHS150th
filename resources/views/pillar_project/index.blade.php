@@ -106,11 +106,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                function copyToClipboard(text) {
-                    navigator.clipboard.writeText(text);
-                }
-            </script>
         </div>
     </div>
     </div>
