@@ -38,12 +38,19 @@
             {{-- Grouped Events Listing --}}
             <div class="mx-auto px-4 w-full bg-white rounded-lg">
                 @foreach ($grouped as $month => $days)
-                    <h2 class="text-3xl font-bold md:my-4">{{ $month }}</h2>
+                {{-- Floating Month --}}
+                <div class="sticky top
+                    {{ $loop->first ? 'top-0 bg-black' : '' }}
+                    {{ $loop->last ? 'bottom-0' : '' }}
+                    bg-white p-2 z-10 bg-opacity-65 backdrop-blur-md rounded-3xl items-center flex">
+                    <h2 class="text-3xl font-bold md:mt-0 md:pl-4">{{ $month }}</h2>
+                </div>
+                {{-- Events for each day --}}
                     @foreach ($days as $day => $eventsForDay)
-                        <h3 class="text-2xl font-semibold md:my-2">{{ $day }}</h3>
+                        {{-- <h3 class="text-2xl font-semibold md:ml-3">{{ $day }}</h3> --}}
                         @foreach ($eventsForDay as $event)
                             @include('components.eventCards', ['event' => $event])
-                            <hr class="border-red-500 my-4">
+                            <hr class="border-red-500 my-4 md:my-0">
                         @endforeach
                     @endforeach
                 @endforeach

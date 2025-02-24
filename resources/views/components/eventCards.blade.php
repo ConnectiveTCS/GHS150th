@@ -1,8 +1,8 @@
 <div class="project-card bg-white rounded-md  rounded-t-md rounded-b-2xl md:rounded-md md:p-4 sm:p-6"
     data-category="{{ strtolower($event->status ?? 'current') }}">
-    <div class="flex flex-col py-1 md:p-4 rounded-lg">
+    <div class="flex flex-col py-1 md:p-y rounded-lg">
         <h2 class="text-2xl font-bold text-black">
-            {{ $event->event_name }}
+            {{ $day }} | {{ $event->event_name }}
         </h2>
         <p class="text-xl text-black">
             {{ $event->event_description }}
