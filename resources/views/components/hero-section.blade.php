@@ -8,12 +8,12 @@
         <img src="{{ asset('assets/150Badge.png') }}" alt=""
             class="md:min-h-20 h-[100px] md:max-h-[150px] {{ $hideImg ?? 'display:block' }}">
         <div class="{{ $hidden ?? 'flex' }} flex-row items-center gap-2 " style=" ">
-            <hr style="border: 2px solid red; width: 50px">
+            <hr style="border: 2px solid red;" class="md:min-w-[100px] min-w-4">
             <p>{{ $topPHeading ?? 'Become a Part of Our Legacy' }}</p>
-            <hr style="border: 2px solid red; width: 50px">
+            <hr style="border: 2px solid red;" class="md:min-w-[100px] min-w-4">
             </p>
         </div>
-        <h1 class="montagu-slab-h1 my-4 text-center text-2xl md:text-5xl text-pretty">
+        <h1 class="montagu-slab-h1 my-2 text-center text-2xl md:text-5xl text-pretty">
             {{ $h1 ?? 'Reuniting Generations, Rekindling Memories.' }}
         </h1>
         <p class="text-center mb-4 text-lg md:text-xl md:w-[82%] text-balance">
