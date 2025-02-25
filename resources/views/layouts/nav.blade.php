@@ -1,7 +1,7 @@
 <nav class="relative bg-[#262A40] text-white px-4 md:px-8 py-2">
     <div class="flex items-center justify-between">
         <a href="/">
-            <img src="{{ asset('assets/GHS_Badge.png') }}" alt="GHS Logo" class="h-12 w-12 md:h-16 md:w-16">
+            <img src="{{ asset('assets/GHS_Badge.webp') }}" alt="GHS Logo" class="h-12 w-12 md:h-16 md:w-16">
         </a>
         <!-- Mobile menu button with ARIA attributes -->
         <button class="md:hidden text-white hover:text-[#DE2413] focus:outline-none absolute right-[16px]"
