@@ -28,8 +28,8 @@
     @if ($event->event_image)
         <div class="image-container text-center md:block hidden">
         <img src="/storage/{{ $event->event_image }}" alt="{{ $event->event_name }}"
-            class="h-[400px] w-full rounded-lg object-contain md:object-cover md:autoscroll">
-        <div class="overlay md:block hidden">Hover to autoscroll image<br>-Or-<br>Scroll using
+            class="h-[400px] w-full rounded-lg object-cover autoscroll">
+        <div class="overlay">Hover to autoscroll image<br>-Or-<br>Scroll using
             mouse-wheel<br>-Or-<br>Click to open image in lightbox</div>
     </div>
         {{-- @else
