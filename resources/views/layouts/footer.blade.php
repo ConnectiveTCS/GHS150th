@@ -23,10 +23,10 @@
     <footer
         class="py-4 bg-[#1f2533] text-center text-sm text-gray-400 border-t border-gray-600 flex justify-center flex-row items-center gap-1">
         <p class="text-sm">Created By </p>
-        <a href="https://acewebdesign.co.za">
+        <a href="https://www.acewebdesign.co.za">
             <img src="{{ asset('assets/AWDLogo.png') }}" alt="Ace Web Design Logo" class="h-[20px]">
         </a>
-        <a href="https://acewebdesign.co.za" class="text-sm text-red-500 font-bold hover:underline">Ace Web
+        <a href="https://www.acewebdesign.co.za" class="text-sm text-red-500 font-bold hover:underline">Ace Web
             Design</a>
         <p class="text-sm">
             | Powered By Laravel</p>
