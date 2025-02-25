@@ -5,8 +5,11 @@
     {{-- Center Content --}}
     <div
         class="text-black text-center z-20 relative flex flex-col justify-center items-center rounded-md w-full sm:max-w-[50%] text-balance py-2 px-4 sm:px-10 bg-white bg-opacity-80 backdrop-blur shadow-xl">
-        <img src="{{ asset('assets/150Badge.webp') }}" alt=""
-            class="md:min-h-20 h-[100px] md:max-h-[150px] {{ $hideImg ?? 'display:block' }}">
+        <!-- Updated 150Badge image with srcset and sizes -->
+        <img src="{{ asset('assets/150Badge.webp') }}"
+            srcset="{{ asset('assets/150Badge_small.webp') }} 150w, {{ asset('assets/150Badge.webp') }} 300w"
+            sizes="(max-width: 768px) 100px, 150px" alt="150 Badge"
+            class="md:min-h-20 h-[150px] md:max-h-[150px] {{ $hideImg ?? 'display:block' }}">
         <div class="{{ $hidden ?? 'flex' }} flex-row items-center gap-2 " style=" ">
             <hr style="border: 2px solid red;" class="md:min-w-[100px] min-w-4">
             <p>{{ $topPHeading ?? 'Become a Part of Our Legacy' }}</p>
@@ -26,7 +29,7 @@
             @if (isset($button2))
                 @include($button2['component'], $button2)
             @endif
-            <button data-modal-target="default-modal" data-modal-toggle="default-modal"  type="button"
+            <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button"
                 class="py-2 px-4 bg-transparent text-red-500 hover:rounded-none hover:bg-white hover:text-[#DE2413] transition-all mt-{{ $mt ?? 1 }} {{ $hiddenBTN ?? 'hidden' }} {{ $rounded ?? 'rounded-none' }}">{{ $popupBTN ?? 'Donate' }}</button>
         </div>
     </div>
