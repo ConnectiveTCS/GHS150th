@@ -4,7 +4,7 @@
         <div class="absolute w-full justify-center md:top-[45%] top-[35%] hidden md:flex">
             <img src="{{ asset('assets/GHS_Badge.webp') }}"
                 srcset="{{ asset('assets/GHS_Badge_small.webp') }} 48w, {{ asset('assets/GHS_Badge.webp') }} 96w"
-                sizes="(max-width: 768px) 48px, 96px" alt="GHS Badge" class="h-12 w-12 md:h-auto md:w-20 z-20">
+                sizes="(max-width: 768px) 48px, 96px" alt="GHS Badge" class="h-12 w-12 md:h-20 md:w-20 z-20">
         </div>
 
         {{-- Main Grid --}}
@@ -26,7 +26,7 @@
         class="py-4 bg-[#1f2533] text-center text-sm text-gray-400 border-t border-gray-600 flex justify-center flex-row items-center gap-1">
         <p class="text-sm">Created By </p>
         <a href="https://www.acewebdesign.co.za">
-            <img src="{{ asset('assets/AWDLogo.png') }}" alt="Ace Web Design Logo" width="80" height="20"
+            <img src="{{ asset('assets/AWDLogo.png') }}" alt="Ace Web Design Logo" width="30" height="20"
                 class="h-[20px]">
         </a>
         <a href="https://www.acewebdesign.co.za" class="text-sm text-white font-bold hover:underline">Ace Web
