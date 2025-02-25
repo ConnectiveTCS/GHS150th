@@ -5,7 +5,7 @@
     {{-- Center Content --}}
     <div
         class="text-black text-center z-20 relative flex flex-col justify-center items-center rounded-md w-full sm:max-w-[50%] text-balance py-2 px-4 sm:px-10 bg-white bg-opacity-80 backdrop-blur shadow-xl">
-        <img src="{{ asset('assets/150Badge.png') }}" alt=""
+        <img src="{{ asset('assets/150Badge.webp') }}" alt=""
             class="md:min-h-20 h-[100px] md:max-h-[150px] {{ $hideImg ?? 'display:block' }}">
         <div class="{{ $hidden ?? 'flex' }} flex-row items-center gap-2 " style=" ">
             <hr style="border: 2px solid red;" class="md:min-w-[100px] min-w-4">
