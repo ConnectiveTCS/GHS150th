@@ -23,21 +23,12 @@
     <footer
         class="py-4 bg-[#1f2533] text-center text-sm text-gray-400 border-t border-gray-600 flex justify-center flex-row items-center gap-1">
         <p class="text-sm">Created By </p>
-        <a href="javascript:void(0)" data-popover="https://acewebdesign.co.za" class="popover-trigger">
+        <a href="https://acewebdesign.co.za">
             <img src="{{ asset('assets/AWDLogo.png') }}" alt="Ace Web Design Logo" class="h-[20px]">
         </a>
-        <a href="javascript:void(0)" data-popover="https://acewebdesign.co.za" class="popover-trigger text-sm text-red-500 font-bold hover:underline">Ace Web
+        <a href="https://acewebdesign.co.za" class="text-sm text-red-500 font-bold hover:underline">Ace Web
             Design</a>
         <p class="text-sm">
             | Powered By Laravel</p>
     </footer>
-
-    <!-- Website Popover -->
-    <div id="website-popover" class="hidden">
-        <iframe id="website-iframe" title="Website Preview" loading="lazy"></iframe>
-    </div>
-
-    <!-- Include Popover CSS and JS -->
-    <link rel="stylesheet" href="{{ asset('css/popover.css') }}">
-    <script src="{{ asset('js/popover.js') }}"></script>
 </footer>
