@@ -23,6 +23,7 @@
         'hidden' => 'hidden',
         'hideImg' => 'block',
         'hiddenBTN' => 'block',
+        'p' => 'Join us for a once-in-a-lifetime celebration of Girls High School’s legacy and community.'
     ])
     {{-- Red Square --}}
     <section class="bg-white h-auto md:h-[100vh] flex flex-col justify-center items-center py-[50px]">
