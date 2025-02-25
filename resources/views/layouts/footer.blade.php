@@ -12,7 +12,7 @@
                 150</a>
             <a href="/programme"
                 class="bg-[#262A40] hover:bg-[#262a40e6] montagu-slab-h1 text-white flex justify-center items-center text-xl py-4 md:text-3xl">Programme</a>
-                <hr class="md:hidden block border-[#DE2413] w-full">
+            <hr class="md:hidden block border-[#DE2413] w-full">
             <a href="/pillar_project"
                 class="bg-[#262A40] hover:bg-[#262a40e6] montagu-slab-h1 text-white flex justify-center items-center text-xl py-4 md:text-3xl">Pillar
                 Project</a>
@@ -20,7 +20,24 @@
                 class="bg-[#DE2413] hover:bg-[#de2413d3] montagu-slab-h1 text-white flex justify-center items-center text-xl py-4 md:text-3xl">Alumni</a>
         </div>
     </div>
-    <footer class="py-4 bg-[#1f2533] text-center text-gray-400 border-t border-gray-600">
-    <p class="text-sm">Created By <a href="https://acewebdesign.co.za" target="_blank">Ace Web Design</a> | Powered By Laravel</p>
-</footer>
+    <footer
+        class="py-4 bg-[#1f2533] text-center text-sm text-gray-400 border-t border-gray-600 flex justify-center flex-row items-center gap-1">
+        <p class="text-sm">Created By </p>
+        <a href="javascript:void(0)" data-popover="https://acewebdesign.co.za" class="popover-trigger">
+            <img src="{{ asset('assets/AWDLogo.png') }}" alt="Ace Web Design Logo" class="h-[20px]">
+        </a>
+        <a href="javascript:void(0)" data-popover="https://acewebdesign.co.za" class="popover-trigger text-sm text-red-500 font-bold hover:underline">Ace Web
+            Design</a>
+        <p class="text-sm">
+            | Powered By Laravel</p>
+    </footer>
+
+    <!-- Website Popover -->
+    <div id="website-popover" class="hidden">
+        <iframe id="website-iframe" title="Website Preview" loading="lazy"></iframe>
+    </div>
+
+    <!-- Include Popover CSS and JS -->
+    <link rel="stylesheet" href="{{ asset('css/popover.css') }}">
+    <script src="{{ asset('js/popover.js') }}"></script>
 </footer>
