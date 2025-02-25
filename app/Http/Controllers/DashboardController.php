@@ -8,21 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index($id)
+    public function index()
     {
-        //
-        $users = Auth::user();
-        $alumni = Alumni::find($id);
+        $user = Auth::user();
+        // Get or create alumni record for the current user
+        $alumni = Alumni::firstOrCreate(['user_id' => $user->id]);
 
-        // Check if alumni record exists
-        if (!$alumni) {
-            return redirect()->route('alumni.create')->with('error', 'Alumni record not found.');
-        }
-
-        return view('dashboard', compact('users', 'alumni'));
+        return view('dashboard', compact('alumni'));
     }
 
     /**

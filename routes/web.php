@@ -16,13 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    // Get the authenticated user and their alumni record if it exists
-    $user = Auth::user();
-    $alumni = $user->alumni ?? null;
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
-    return view('dashboard', compact('alumni'));
-})->middleware(['auth', 'verified'])->name('dashboard');
 // Club 150
 Route::get('/club_150', function () {
     $projectCards = \App\Models\ProjectCards::all();

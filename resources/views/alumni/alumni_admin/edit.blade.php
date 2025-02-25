@@ -16,18 +16,18 @@
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
             <div class="mb-4">
-                <label for="first_name" class="block text-sm font-medium text-gray-700">Firt Name <span
+                <label for="first_name" class="block text-sm font-medium text-gray-700">First Name <span
                         class="text-red-500">*</span></label>
                 <input type="text" id="first_name" name="first_name" required
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    value="{{ $alumni->first_name }}" readonly>
+                    value="{{ $alumni->first_name ?? (Auth::user()->alumni->first_name ?? explode(' ', $users->name)[0]) }}">
             </div>
             <div class="mb-4">
                 <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name (Maiden Name)<span
                         class="text-red-500">*</span></label>
                 <input type="text" id="last_name" name="last_name" required
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    value="{{ $alumni->last_name }}">
+                    value="{{ $alumni->first_name ?? (Auth::user()->alumni->first_name ?? explode(' ', $users->name)[1]) }}">
             </div>
             <div class="mb-4">
                 <label for="id_number" class="block text-sm font-medium text-gray-700">ID Number</label>
@@ -45,7 +45,7 @@
                         class="text-red-500">*</span></label>
                 <input type="text" id="email" name="email"
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    value="{{ $alumni->email }}" readonly>
+                    value="{{ $alumni->first_name ?? (Auth::user()->alumni->first_name ?? Auth::user()->email) }}" readonly>
             </div>
             <div class="mb-4">
                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number<span

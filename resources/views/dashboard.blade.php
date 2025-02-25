@@ -16,7 +16,7 @@
                         <div class="md:col-span-1">
                             <div class="flex flex-col items-center">
                                 <div class="w-40 h-40 rounded-full bg-gray-200 overflow-hidden mb-4">
-                                    @if ($alumni->profile_picture !== null)
+                                    @if ($alumni && $alumni->profile_picture)
                                         <img src="{{ asset('storage/' . $alumni->profile_picture) }}"
                                             alt="Profile Photo" class="w-full h-full object-cover">
                                     @else
@@ -28,7 +28,7 @@
                                 </div>
                                 <h4 class="text-xl font-semibold">{{ Auth::user()->name ?? 'Not provided' }}</h4>
                                 <p class="text-gray-600">Class of
-                                    {{ $alumni->class_of }}</p>
+                                    {{ $alumni->class_of ?? 'Not provided' }}</p>
                             </div>
                         </div>
 
@@ -43,9 +43,9 @@
                                     </div>
                                     <div>
                                         <p class="text-sm text-gray-600">Phone</p>
-                                        <p>{{ Auth::user()->alumni->phone ?? 'Not provided' }}</p>
+                                        <p>{{ $alumni->phone ?? 'Not provided' }}</p>
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
@@ -53,24 +53,31 @@
                                 <h4 class="font-medium text-lg mb-3 text-gray-800">Alumni Details</h4>
                                 <div class="mb-4">
                                     <p class="text-sm text-gray-600">Current Employer</p>
-                                    <p>{{ Auth::user()->alumni->current_employer ?? 'Not provided' }}</p>
+                                    <p>{{ $alumni->current_employer ?? 'Not provided' }}</p>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-sm text-gray-600">Current Occupation</p>
-                                    <p>{{ Auth::user()->alumni->current_position ?? 'Not provided' }}</p>
+                                    <p>{{ $alumni->current_position ?? 'Not provided' }}</p>
                                 </div>
                                 <div>
                                     <p class="text-sm text-gray-600">Bio</p>
                                     <p class="whitespace-pre-line">
-                                        {{ Auth::user()->alumni->bio ?? 'Not provided' }}</p>
+                                        {{ $alumni->bio ?? 'Not provided' }}</p>
                                 </div>
                             </div>
 
                             <div class="mt-6 text-right">
-                                <a href="{{ route('alumni.edit', $alumni->id) ?? '#' }}"
-                                    class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                    Edit Profile
-                                </a>
+                                @if ($alumni->user_id == Auth::id())
+                                    <a href="{{ route('alumni.edit', $alumni->id) }}"
+                                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        Edit Profile
+                                    </a>
+                                @else
+                                    <a href="{{ route('alumni.create') }}"
+                                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        Create Profile
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </div>
