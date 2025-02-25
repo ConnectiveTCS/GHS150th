@@ -40,14 +40,31 @@ class AlumniController extends Controller
     public function create()
     {
         $users = Auth::user();
-        return view('alumni.alumni_admin.create', compact('users'));
+
+        // If user is authenticated, redirect to alumni create page
+        if (Auth::check()) {
+            return view('alumni.alumni_admin.create', compact('users'));
+        }
+        // If user is not authenticated, redirect to register page
+        return view('dashboard');
     }
 
     public function edit($id)
     {
         $users = Auth::user();
         $alumni = Alumni::find($id);
-        return view('alumni.alumni_admin.edit', compact('alumni', 'users'));
+
+        // Check if alumni record exists
+        // if (!$alumni) {
+        //     return redirect()->route('alumni.create')->with('error', 'Alumni record not found.');
+        // }
+
+        // If user is authenticated and has a alumni profile, redirect to alumni edit page
+        if (Auth::check() && $alumni->user_id === Auth::user()->id) {
+            return view('alumni.alumni_admin.edit', compact('alumni', 'users'));
+        } else {
+            return redirect()->route('alumni.create')->with('error', 'You are not authorized to edit this alumni record.');
+        }
     }
 
     public function store(Request $request)

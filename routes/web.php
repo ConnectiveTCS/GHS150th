@@ -1,20 +1,27 @@
 <?php
 
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProjectCardsController;
 use App\Http\Controllers\ProgrammeController;
+use App\Http\Controllers\ProjectCardsController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
+// Public Access
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    // Get the authenticated user and their alumni record if it exists
+    $user = Auth::user();
+    $alumni = $user->alumni ?? null;
+
+    return view('dashboard', compact('alumni'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 // Club 150
 Route::get('/club_150', function () {
@@ -47,48 +54,54 @@ Route::get('/pillar_project', function () {
     return view('pillar_project.index');
 });
 // Alumni
-Route::get('/alumni_', function () {
+Route::get('/alumnis', function () {
     return view('alumni.index');
 });
+
+// Alumni Profile
+Route::resource('/alumni', App\Http\Controllers\AlumniController::class)->except(['destroy']);
+
 // Reservations
 Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
+
 // Update the POST route to add a name
 Route::post('/reserve', [ReservationController::class, 'store'])->name('reservations.store');
 
 Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit']);
 Route::put('/reservations/{id}', [ReservationController::class, 'update']);
 
-// Route::resource('reservations', App\Http\Controllers\ReservationController::class);
-
+// Admin Access
 
 Route::middleware('auth')->group(function () {
+    // Profile CRUD routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Use only the resource route for project cards
-    Route::resource('/project-cards', ProjectCardsController::class);
-
-    // Optional: you may keep a create route if needed:
+    // Project Cards CRUD routes
+    Route::resource('/project-cards', ProjectCardsController::class)->middleware('can:admin-access');
     Route::get('/create', function () {
         return view('club_150.project_card.create');
-    });
+    })->middleware('can:admin-access');
     Route::get('/projects', function () {
         $projectCards = \App\Models\ProjectCards::all();
         return view('club_150.project_card.index', compact('projectCards'));
-    })->name('projectCards');
-    // Route::resource('reservations', App\Http\Controllers\ReservationController::class);
-    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
-    Route::get('/reservations/{id}', [ReservationController::class, 'show'])->name('reservations.show');
-    Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
-    Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name('reservations.update');
-    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+    })->name('projectCards')->middleware('can:admin-access');
+
+    // Reservations CRUD routes
+    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index')->middleware('can:admin-access');
+    Route::get('/reservations/{id}', [ReservationController::class, 'show'])->name('reservations.show')->middleware('can:admin-access');
+    Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit'])->name('reservations.edit')->middleware('can:admin-access');
+    Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name('reservations.update')->middleware('can:admin-access');
+    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy')->middleware('can:admin-access');
 
     // Alumni CRUD routes
-    Route::resource('/alumni', App\Http\Controllers\AlumniController::class);
+    Route::resource('/alumni', App\Http\Controllers\AlumniController::class)->except('create', 'store', 'edit', 'update')->middleware('can:admin-access');
 
     // Events CRUD routes
-    Route::resource('/events', App\Http\Controllers\EventsController::class);
+    Route::resource('/events', App\Http\Controllers\EventsController::class)->middleware('can:admin-access');
 });
+
+
 
 require __DIR__ . '/auth.php';

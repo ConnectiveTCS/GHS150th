@@ -22,4 +22,9 @@ class Alumni extends Model
         'bio',
         'profile_picture',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
