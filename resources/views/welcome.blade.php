@@ -23,7 +23,7 @@
         'hidden' => 'hidden',
         'hideImg' => 'block',
         'hiddenBTN' => 'block',
-        'p' => 'Join us for a once-in-a-lifetime celebration of Girls High School’s legacy and community.'
+        'p' => 'Join us for a once-in-a-lifetime celebration of Girls High School’s legacy and community.',
     ])
     {{-- Red Square --}}
     <section class="bg-white h-auto md:h-[100vh] flex flex-col justify-center items-center py-[50px]">
@@ -42,23 +42,29 @@
         </div>
     </section>
     <!-- Main modal -->
-<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Banking Details
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                <!-- Modal header -->
+                <div
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Banking Details
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
                     <div class="bg-gray-100 rounded-lg p-4">
                         <!-- Bank Name -->
@@ -67,7 +73,7 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $bankName ?? 'ABSA' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $bankName ?? 'ABSA' }}')"
+                                <button onclick="copyToClipboard('{{ $bankName ?? 'ABSA' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -77,7 +83,7 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $accountType ?? 'Cheque Account' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $accountType ?? 'Cheque Account' }}')"
+                                <button onclick="copyToClipboard('{{ $accountType ?? 'Cheque Account' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -87,7 +93,8 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $accountName ?? 'Old Quenstownia Association' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $accountName ?? 'Old Quenstownia Association' }}')"
+                                <button
+                                    onclick="copyToClipboard('{{ $accountName ?? 'Old Quenstownia Association' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -97,7 +104,7 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $accountNumber ?? '711651284' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $accountNumber ?? '711651284' }}')"
+                                <button onclick="copyToClipboard('{{ $accountNumber ?? '711651284' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -105,7 +112,8 @@
                         <div class="mb-4">
                             <label class="block font-semibold text-gray-700">Reference:</label>
                             <div class="flex items-center">
-                                <input type="text" value="{{ $reference ?? 'GHS150 [Your Name] eg. GHS150 John Doe' }}"
+                                <input type="text"
+                                    value="{{ $reference ?? 'GHS150 [Your Name] eg. GHS150 John Doe' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
                             </div>
                         </div>
@@ -115,19 +123,25 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $swiftCode ?? 'ABSAZAJJ' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $swiftCode ?? 'ABSAZAJJ' }}')"
+                                <button onclick="copyToClipboard('{{ $swiftCode ?? 'ABSAZAJJ' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <script>
-                    function copyToClipboard(text) {
-                        navigator.clipboard.writeText(text);
+                    function copyToClipboard(text, btn) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            var originalText = btn.innerHTML;
+                            btn.innerHTML = "Copied";
+                            setTimeout(() => {
+                                btn.innerHTML = originalText;
+                            }, 2000);
+                        });
                     }
                 </script>
+            </div>
         </div>
     </div>
-</div>
-</div>
+    </div>
 </x-app-layout>

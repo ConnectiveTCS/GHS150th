@@ -161,7 +161,7 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $bankName ?? 'ABSA' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $bankName ?? 'ABSA' }}')"
+                                <button onclick="copyToClipboard('{{ $bankName ?? 'ABSA' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $accountType ?? 'Cheque Account' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $accountType ?? 'Cheque Account' }}')"
+                                <button onclick="copyToClipboard('{{ $accountType ?? 'Cheque Account' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -181,7 +181,8 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $accountName ?? 'Old Quenstownia Association' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $accountName ?? 'Old Quenstownia Association' }}')"
+                                <button
+                                    onclick="copyToClipboard('{{ $accountName ?? 'Old Quenstownia Association' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -191,7 +192,7 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $accountNumber ?? '711651284' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $accountNumber ?? '711651284' }}')"
+                                <button onclick="copyToClipboard('{{ $accountNumber ?? '711651284' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
@@ -210,15 +211,21 @@
                             <div class="flex items-center">
                                 <input type="text" value="{{ $swiftCode ?? 'ABSAZAJJ' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
-                                <button onclick="copyToClipboard('{{ $swiftCode ?? 'ABSAZAJJ' }}')"
+                                <button onclick="copyToClipboard('{{ $swiftCode ?? 'ABSAZAJJ' }}', this)"
                                     class="bg-red-500 text-white px-3 rounded">Copy</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <script>
-                    function copyToClipboard(text) {
-                        navigator.clipboard.writeText(text);
+                    function copyToClipboard(text, btn) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            var originalText = btn.innerHTML;
+                            btn.innerHTML = "Copied";
+                            setTimeout(() => {
+                                btn.innerHTML = originalText;
+                            }, 2000);
+                        });
                     }
                 </script>
             </div>
