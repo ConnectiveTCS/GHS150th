@@ -7,11 +7,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=YourFontFamily&display=swap" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
+<!-- Removed invalid font preload for YourFontFamily to fix MIME type errors -->
+<!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=YourFontFamily&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=YourFontFamily&display=swap">
-</noscript>
+</noscript> -->
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-797EEQG3J4"></script>
