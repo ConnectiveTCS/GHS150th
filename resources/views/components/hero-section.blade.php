@@ -8,7 +8,7 @@
         <!-- Updated 150Badge image with srcset and sizes -->
         <img src="{{ asset('assets/150Badge.webp') }}"
             srcset="{{ asset('assets/150Badge_small.webp') }} 150w, {{ asset('assets/150Badge.webp') }} 300w"
-            sizes="(max-width: 768px) 100px, 150px" alt="150 Badge"
+            sizes="(max-width: 768px) 100px, 150px" alt="150 Badge" width="290" height="150"
             class="md:min-h-20 h-[150px] md:max-h-[150px] {{ $hideImg ?? 'display:block' }}">
         <div class="{{ $hidden ?? 'flex' }} flex-row items-center gap-2 " style=" ">
             <hr style="border: 2px solid red;" class="md:min-w-[100px] min-w-4">
