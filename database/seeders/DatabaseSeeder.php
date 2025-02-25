@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Alumni;
 use App\Models\Events;
+use App\Models\ProjectCards;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -81,6 +82,9 @@ class DatabaseSeeder extends Seeder
 
         // Seed events data
         $this->seedEvents();
+
+        // Seed project cards data
+        $this->seedProjectCards();
 
         // $this->call([
         //     RoleSeeder::class,
@@ -282,6 +286,58 @@ class DatabaseSeeder extends Seeder
 
         foreach ($events as $eventData) {
             Events::updateOrCreate(['id' => $eventData['id']], $eventData);
+        }
+    }
+
+    /**
+     * Seed project cards data
+     */
+    private function seedProjectCards(): void
+    {
+        $projectCards = [
+            [
+                'id' => 2,
+                'project_id' => 2,
+                'image' => 'project_cards/RKyQ09OA7gnjDHOyDxManp3o31yorYfkmKN9qLKB.jpg',
+                'title' => 'The Garden Revival',
+                'description' => 'Revamping the school\'s garden, introducing indigenous plants and interactive learning stations for educational purposes.',
+                'position' => 1,
+                'status' => 'current',
+                'completion_percentage' => '80',
+                'project_timeline' => 'Oct – Dec 2026',
+                'created_at' => '2025-02-24 12:43:58',
+                'updated_at' => '2025-02-24 12:43:58',
+            ],
+            [
+                'id' => 3,
+                'project_id' => 3,
+                'image' => 'project_cards/u8BGr4f0U1mbcTYJj0D81mHwo6PhSM1ruCLnQjSZ.jpg',
+                'title' => 'GHS OQA Center Upgrade',
+                'description' => 'Upgrading the  (OQA) Center',
+                'position' => 2,
+                'status' => 'current',
+                'completion_percentage' => '50',
+                'project_timeline' => 'Nov 2024 – Dec 2025',
+                'created_at' => '2025-02-25 05:40:14',
+                'updated_at' => '2025-02-25 05:40:14',
+            ],
+            [
+                'id' => 4,
+                'project_id' => 4,
+                'image' => 'project_cards/ty98GsxsrroNFT4VcZk62abT2jm1uO57xfzKHiST.jpg',
+                'title' => 'The Sports Ground Wall Project',
+                'description' => 'Upgrading the College Avenue and Haig Avenue entrances with custom brickwork, improved security, and school crests on both sides of the gates.',
+                'position' => 3,
+                'status' => 'current',
+                'completion_percentage' => '40',
+                'project_timeline' => 'Jan – Mar 2025',
+                'created_at' => '2025-02-25 05:40:49',
+                'updated_at' => '2025-02-25 05:41:03',
+            ],
+        ];
+
+        foreach ($projectCards as $cardData) {
+            ProjectCards::updateOrCreate(['id' => $cardData['id']], $cardData);
         }
     }
 }
