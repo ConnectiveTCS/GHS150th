@@ -60,10 +60,10 @@
     <main>
         @foreach ($grouped as $month => $days)
             <section>
-                <h2>{{ $month }}</h2>
+                <h2>{{ $month ?? '' }}</h2>
                 @foreach ($days as $day => $eventsForDay)
                     <article>
-                        <h3>{{ $day }}</h3>
+                        <h3>{{ $day ?? '' }}</h3>
                         @foreach ($eventsForDay as $event)
                             @include('components.eventCardsForPFD', ['event' => $event])
                             <hr>

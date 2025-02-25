@@ -45,10 +45,10 @@ class EventsController extends Controller
     {
         $data = $request->validate([
             'event_name'        => 'required|string|max:255',
-            'event_description' => 'required|string',
+            'event_description' => 'nullable|string',
             'event_date'        => 'required|date',
-            'event_location'    => 'required|string|max:255',
-            'event_image'       => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:8048',
+            'event_location'    => 'nullable|string|max:255',
+            'event_image'       => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
         ]);
         if ($request->hasFile('event_image')) {
             $data['event_image'] = $request->file('event_image')->store('events', 'public');
@@ -75,10 +75,10 @@ class EventsController extends Controller
     {
         $data = $request->validate([
             'event_name'        => 'required|string|max:255',
-            'event_description' => 'required|string',
+            'event_description' => 'nullable|string',
             'event_date'        => 'required|date',
-            'event_location'    => 'required|string|max:255',
-            'event_image'       => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:8048',
+            'event_location'    => 'nullable|string|max:255',
+            'event_image'       => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
         ]);
         if ($request->hasFile('event_image')) {
             $data['event_image'] = $request->file('event_image')->store('events', 'public');

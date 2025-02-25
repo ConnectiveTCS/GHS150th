@@ -43,7 +43,7 @@
                     {{ $loop->first ? 'top-0 bg-black' : '' }}
                     {{ $loop->last ? 'bottom-0' : '' }}
                     bg-white p-2 z-10 bg-opacity-65 backdrop-blur-md rounded-3xl items-center flex">
-                    <h2 class="text-3xl font-bold md:mt-0 md:pl-4">{{ $month }}</h2>
+                    <h2 class="text-3xl font-bold md:mt-0 md:pl-4">{{ $month ?? '' }}</h2>
                 </div>
                 {{-- Events for each day --}}
                     @foreach ($days as $day => $eventsForDay)

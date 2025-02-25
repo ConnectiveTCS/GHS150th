@@ -12,7 +12,7 @@
             <!-- Event Description -->
             <div class="mb-4">
                 <label for="event_description" class="block text-sm font-medium text-gray-700">Description</label>
-                <textarea id="event_description" name="event_description" required
+                <textarea id="event_description" name="event_description" 
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
             </div>
             <!-- Event Date -->
@@ -24,7 +24,7 @@
             <!-- Event Location -->
             <div class="mb-4">
                 <label for="event_location" class="block text-sm font-medium text-gray-700">Location</label>
-                <input type="text" id="event_location" name="event_location" required
+                <input type="text" id="event_location" name="event_location" 
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
             <!-- Image Preview -->
