@@ -20,4 +20,7 @@
                 class="bg-[#DE2413] hover:bg-[#de2413d3] montagu-slab-h1 text-white flex justify-center items-center text-xl py-4 md:text-3xl">Alumni</a>
         </div>
     </div>
+    <footer class="py-4 bg-[#1f2533] text-center text-gray-400 border-t border-gray-600">
+    <p class="text-sm">Created By <a href="">Ace Web Design</a> | Powered By Laravel</p>
+</footer>
 </footer>
