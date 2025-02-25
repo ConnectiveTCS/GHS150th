@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="GHS 150th celebrates a legacy of excellence and community. Join our events, discover our history, and celebrate our heritage.">
 
     <title>GHS 150th</title>
 
