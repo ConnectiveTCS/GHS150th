@@ -1,6 +1,9 @@
 # GHS150th
 
-![GHS Badge]([/assets/GHS_Badge.png](https://ghs150.acewebdesign.co.za/assets/GHS_Badge.png))
+<div style="display:flex; flex-direction:row; justify-content:center">
+    <h1>GHS150th</h1>
+    <img src="https://ghs150.acewebdesign.co.za/assets/GHS_Badge.png" style="height:150px; ">
+</div>
 
 GHS150th is a Laravel-based web application dedicated to celebrating the legacy and future of GHS. The site provides features for alumni profiles, club activities, programmes, pillar projects, and more.
 
