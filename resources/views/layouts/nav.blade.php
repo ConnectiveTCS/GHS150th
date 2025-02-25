@@ -1,7 +1,9 @@
 <nav class="relative bg-[#262A40] text-white px-4 md:px-8 py-2">
     <div class="flex items-center justify-between">
         <a href="/">
-            <img src="{{ asset('assets/GHS_Badge.webp') }}" alt="GHS Logo" class="h-12 w-12 md:h-16 md:w-16">
+            <img src="{{ asset('assets/GHS_Badge.webp') }}"
+                srcset="{{ asset('assets/GHS_Badge_small.webp') }} 48w, {{ asset('assets/GHS_Badge.webp') }} 96w"
+                sizes="(max-width: 768px) 48px, 96px" alt="GHS Logo" class="h-12 w-12 md:h-16 md:w-16">
         </a>
         <!-- Mobile menu button with ARIA attributes -->
         <button class="md:hidden text-white hover:text-[#DE2413] focus:outline-none absolute right-[16px]"
@@ -119,8 +121,7 @@
                                 class="block w-full px-4 py-2 hover:bg-gray-700 hover:text-[#DE2413]">Alumni Network</a>
                         </li>
                     @endif
-                    <li><a href="/dashboard"
-                            class="block w-full px-4 py-2 hover:bg-gray-700 hover:text-[#DE2413]">Alumni
+                    <li><a href="/dashboard" class="block w-full px-4 py-2 hover:bg-gray-700 hover:text-[#DE2413]">Alumni
                             Profile</a>
                     </li>
                     <li>
