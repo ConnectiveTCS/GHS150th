@@ -18,16 +18,16 @@
                         class="{{ request()->is('/') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Home</a>
                 </li>
                 <li><a href="/club_150"
-                        class="{{ request()->is('/club_150') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Club
+                        class="{{ request()->is('club_150') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Club
                         150</a></li>
                 <li><a href="/programme"
-                        class="{{ request()->is('/programme') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Programme</a>
+                        class="{{ request()->is('programme') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Programme</a>
                 </li>
                 <li><a href="/pillar_project"
-                        class="{{ request()->is('/pillar_project') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Pillar
+                        class="{{ request()->is('pillar_project') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Pillar
                         Project</a></li>
                 <li><a href="/alumnis"
-                        class="{{ request()->is('/alumni') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni</a>
+                        class="{{ request()->is('alumnis') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni</a>
                 </li>
             </ul>
             {{-- If user is logged in they can view this menu --}}
@@ -42,13 +42,13 @@
                 <ul class="hidden md:flex flex-row items-center justify-center gap-4">
                     @if (Auth::user()->role == 'admin')
                         <li><a href="/projects"
-                                class="{{ request()->is('/projects') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Projects</a>
+                                class="{{ request()->is('projects') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Projects</a>
                         </li>
                         <li><a href="/events"
-                                class="{{ request()->is('/events') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Events</a>
+                                class="{{ request()->is('events') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Events</a>
                         </li>
                         <li><a href="/reservations"
-                                class="{{ request()->is('/reservations') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Reservations</a>
+                                class="{{ request()->is('reservations') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Reservations</a>
                         </li>
                         <li><a href="{{ route('alumni.index') }}"
                                 class="{{ request()->is(route('alumni.index')) ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni
@@ -56,7 +56,7 @@
                         </li>
                     @endif
                     <li><a href="/dashboard"
-                            class="{{ request()->is('/dashboard') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni
+                            class="{{ request()->is('dashboard') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Alumni
                             Profile</a>
                     </li>
                     <li>
