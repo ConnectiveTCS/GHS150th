@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Log; // added
 
 class ProfileController extends Controller
 {
@@ -16,6 +17,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        Log::info('ProfileController.edit called');
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
@@ -26,6 +28,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        Log::info('ProfileController.update called');
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -37,11 +40,9 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
-    /**
-     * Delete the user's account.
-     */
     public function destroy(Request $request): RedirectResponse
     {
+        Log::info('ProfileController.destroy called');
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);

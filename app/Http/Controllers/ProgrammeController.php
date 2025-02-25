@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf; // updated import for barryvdh/laravel-dompdf
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Log; // added
 
 class ProgrammeController extends Controller
 {
@@ -12,6 +13,7 @@ class ProgrammeController extends Controller
 
     public function downloadPdf()
     {
+        Log::info('ProgrammeController.downloadPdf called');
         // Fetch your events data as needed.
         $events = Events::all(); // adjust query as necessary
         $months = [];

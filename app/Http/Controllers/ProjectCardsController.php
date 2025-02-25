@@ -4,22 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\ProjectCards;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log; // added
 
 class ProjectCardsController extends Controller
 {
     // List all project cards
     public function index(ProjectCards $projectCards)
     {
+        Log::info('ProjectCardsController.index called');
         return view('club_150.project_card.index', compact('projectCards'));
     }
     public function club150Index(ProjectCards $projectCards)
     {
+        Log::info('ProjectCardsController.club150Index called');
         return view('club_150.index', compact('projectCards'));
     }
 
     // Create a new project card
     public function store(Request $request)
     {
+        Log::info('ProjectCardsController.store called');
         $validated = $request->validate([
             'title' => 'required|string',
             'image' => 'nullable|file|mimes:jpg,jpeg,png,svg',
@@ -44,6 +48,7 @@ class ProjectCardsController extends Controller
     // Show a specific project card by id
     public function show($id)
     {
+        Log::info('ProjectCardsController.show called', ['id' => $id]);
         $projectCard = ProjectCards::findOrFail($id);
         // return response()->json($projectCard);
         return view('club_150.index', compact('projectCard'));
@@ -52,6 +57,7 @@ class ProjectCardsController extends Controller
     // New edit method to pass the project card to the view
     public function edit($id)
     {
+        Log::info('ProjectCardsController.edit called', ['id' => $id]);
         $projectCard = ProjectCards::findOrFail($id);
         return view('club_150.project_card.edit', compact('projectCard'));
     }
@@ -59,6 +65,7 @@ class ProjectCardsController extends Controller
     // Update a specific project card by id
     public function update(Request $request, $id)
     {
+        Log::info('ProjectCardsController.update called', ['id' => $id]);
         $projectCard = ProjectCards::findOrFail($id);
 
         $validated = $request->validate([
@@ -85,6 +92,7 @@ class ProjectCardsController extends Controller
     // Delete a specific project card by id
     public function destroy($id)
     {
+        Log::info('ProjectCardsController.destroy called', ['id' => $id]);
         $projectCard = ProjectCards::findOrFail($id);
         $projectCard->delete();
 

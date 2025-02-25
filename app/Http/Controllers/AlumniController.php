@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Alumni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Log; // added
 
 class AlumniController extends Controller
 {
     //
     public function index()
     {
+        Log::info('AlumniController.index called');
         $alumnis = Alumni::all();
         // Group Year of Graduation
         $years = [];
@@ -39,6 +40,7 @@ class AlumniController extends Controller
 
     public function create()
     {
+        Log::info('AlumniController.create called');
         $users = Auth::user();
 
         // If user is authenticated, redirect to alumni create page
@@ -51,6 +53,7 @@ class AlumniController extends Controller
 
     public function edit($id)
     {
+        Log::info('AlumniController.edit called', ['id' => $id]);
         $users = Auth::user();
         $alumni = Alumni::find($id);
 
@@ -69,6 +72,7 @@ class AlumniController extends Controller
 
     public function store(Request $request)
     {
+        Log::info('AlumniController.store called');
         $data = $request->validate([
             'first_name'        => 'required|string|max:255',
             'last_name'         => 'required|string|max:255',
@@ -95,6 +99,7 @@ class AlumniController extends Controller
 
     public function update(Request $request, $id)
     {
+        Log::info('AlumniController.update called', ['id' => $id]);
         $alumniProfile = Alumni::findOrFail($id);
 
         $validated = $request->validate([
@@ -125,6 +130,7 @@ class AlumniController extends Controller
 
     public function destroy($id)
     {
+        Log::info('AlumniController.destroy called', ['id' => $id]);
         Alumni::find($id)->delete();
         return redirect()->route('alumni.index');
     }

@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log; // added
 
 class EventsController extends Controller
 {
     // Display a listing of events.
     public function index()
     {
+        Log::info('EventsController.index called');
         $events = Events::all();
         return view('events.index', compact('events'));
     }
 
     public function programme()
     {
+        Log::info('EventsController.programme called');
         $events = Events::all();
         $months = [];
         foreach ($events as $event) {
@@ -37,12 +40,14 @@ class EventsController extends Controller
     // Show the form for creating a new event.
     public function create()
     {
+        Log::info('EventsController.create called');
         return view('events.create');
     }
 
     // Store a newly created event in storage.
     public function store(Request $request)
     {
+        Log::info('EventsController.store called');
         $data = $request->validate([
             'event_name'        => 'required|string|max:255',
             'event_description' => 'nullable|string',
@@ -61,18 +66,21 @@ class EventsController extends Controller
     // Display the specified event.
     public function show(Events $event)
     {
+        Log::info('EventsController.show called', ['event_id' => $event->id]);
         return view('events.show', compact('event'));
     }
 
     // Show the form for editing the specified event.
     public function edit(Events $event)
     {
+        Log::info('EventsController.edit called', ['event_id' => $event->id]);
         return view('events.edit', compact('event'));
     }
 
     // Update the specified event in storage.
     public function update(Request $request, Events $event)
     {
+        Log::info('EventsController.update called', ['event_id' => $event->id]);
         $data = $request->validate([
             'event_name'        => 'required|string|max:255',
             'event_description' => 'nullable|string',
@@ -90,6 +98,7 @@ class EventsController extends Controller
     // Remove the specified event from storage.
     public function destroy(Events $event)
     {
+        Log::info('EventsController.destroy called', ['event_id' => $event->id]);
         $event->delete();
         return redirect()->route('events.index');
     }
