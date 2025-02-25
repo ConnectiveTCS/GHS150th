@@ -4,7 +4,8 @@
         'bg' => asset('assets/Club150_Hero_BG.webp'),
         'button1' => [
             'component' => 'components.button',
-            'href' => 'https://docs.google.com/forms/d/e/1FAIpQLSd6h-CXbgl5SWC6BSQVwHEfqyAevpUV5N1Ov0Oq5VEvrmvwHA/viewform?usp=sf_link',
+            'href' =>
+                'https://docs.google.com/forms/d/e/1FAIpQLSd6h-CXbgl5SWC6BSQVwHEfqyAevpUV5N1Ov0Oq5VEvrmvwHA/viewform?usp=sf_link',
             'content' => 'Join Club 150 Now',
             'bgColor' => '#DE2413',
             'mt' => 2,
@@ -35,12 +36,16 @@
             High
             School for future generations. Here’s a look at the projects your donations are making possible.</p>
         {{-- Projects Container --}}
-        <div class="flex flex-col gap-4 bg-[#262A40] w-full mt-8 rounded-[20px] md:p-8 p-2 md:justify-start justify-center">
+        <div
+            class="flex flex-col gap-4 bg-[#262A40] w-full mt-8 rounded-[20px] md:p-8 p-2 md:justify-start justify-center">
             <!-- Tabs -->
             <div class="hidden justify-start my-6 md:flex">
-                <button class="px-4 py-2 rounded-tl-2xl bg-red-600 text-white mr-2">Current</button>
-                <button class="px-4 py-2 rounded-tl-2xl bg-gray-700 text-white mr-2">Upcoming</button>
-                <button class="px-4 py-2 rounded-tl-2xl bg-gray-700 text-white">Completed</button>
+                <button class="tab-button px-4 py-2 rounded-tl-2xl bg-red-600 text-white mr-2"
+                    data-category="current">Current</button>
+                <button class="tab-button px-4 py-2 rounded-tl-2xl bg-gray-700 text-white mr-2"
+                    data-category="upcoming">Upcoming</button>
+                <button class="tab-button px-4 py-2 rounded-tl-2xl bg-gray-700 text-white"
+                    data-category="completed">Completed</button>
             </div>
             <!-- Mobile Tabs as Dropdown -->
             <div class="flex justify-start mb-6 md:hidden">
@@ -60,17 +65,23 @@
             </div>
         </div>
     </section>
+    <style>
+        /* Forces element to be hidden regardless of responsive classes */
+        .filter-hidden {
+            display: none !important;
+        }
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('button');
+            const tabs = document.querySelectorAll('.tab-button');
             const cards = document.querySelectorAll('.project-card');
-            // Set default: show only "current" cards
+
+            // Set default: show only "current" cards using filter-hidden class
             cards.forEach(card => {
                 if (card.dataset.category !== 'current') {
-                    card.classList.add('hidden');
+                    card.classList.add('filter-hidden');
                 }
             });
-            // Hide hr in the last visible card on load
             updateHrDisplay();
 
             tabs.forEach(tab => {
@@ -81,12 +92,13 @@
                     });
                     tab.classList.add('bg-red-600', 'rounded-t-lg');
                     tab.classList.remove('bg-gray-700', 'rounded-tl-2xl');
-                    const selectedTab = tab.textContent.trim().toLowerCase();
+
+                    const selectedCategory = tab.dataset.category;
                     cards.forEach(card => {
-                        if (card.dataset.category === selectedTab) {
-                            card.classList.remove('hidden');
+                        if (card.dataset.category === selectedCategory) {
+                            card.classList.remove('filter-hidden');
                         } else {
-                            card.classList.add('hidden');
+                            card.classList.add('filter-hidden');
                         }
                     });
                     updateHrDisplay();
@@ -99,15 +111,15 @@
                 mobileSelect.addEventListener('change', () => {
                     const selectedTab = mobileSelect.value.toLowerCase();
                     cards.forEach(card => {
-                        card.classList.toggle('hidden', card.dataset.category !== selectedTab);
+                        card.classList.toggle('filter-hidden', card.dataset.category !==
+                            selectedTab);
                     });
                     updateHrDisplay();
                 });
             }
 
             function updateHrDisplay() {
-                const visibleCards = Array.from(cards).filter(card => !card.classList.contains('hidden'));
-                // For each visible card, show its hr; hide hr in the last visible card.
+                const visibleCards = Array.from(cards).filter(card => !card.classList.contains('filter-hidden'));
                 visibleCards.forEach((card, index) => {
                     const hr = card.querySelector('hr');
                     if (hr) {
@@ -118,23 +130,29 @@
         });
     </script>
     {{-- Main Modal --}}
-    <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Banking Details
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                <!-- Modal header -->
+                <div
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Banking Details
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
                     <div class="bg-gray-100 rounded-lg p-4">
                         <!-- Bank Name -->
@@ -181,7 +199,8 @@
                         <div class="mb-4">
                             <label class="block font-semibold text-gray-700">Reference:</label>
                             <div class="flex items-center">
-                                <input type="text" value="{{ $reference ?? 'GHS150 [Your Name] eg. GHS150 John Doe' }}"
+                                <input type="text"
+                                    value="{{ $reference ?? 'GHS150 [Your Name] eg. GHS150 John Doe' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
                             </div>
                         </div>
@@ -202,7 +221,7 @@
                         navigator.clipboard.writeText(text);
                     }
                 </script>
+            </div>
         </div>
     </div>
-</div>
 </x-app-layout>
