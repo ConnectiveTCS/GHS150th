@@ -28,7 +28,7 @@
         <a href="https://www.acewebdesign.co.za">
             <img src="{{ asset('assets/AWDLogo.png') }}" alt="Ace Web Design Logo" class="h-[20px]">
         </a>
-        <a href="https://www.acewebdesign.co.za" class="text-sm text-red-500 font-bold hover:underline">Ace Web
+        <a href="https://www.acewebdesign.co.za" class="text-sm text-white font-bold hover:underline">Ace Web
             Design</a>
         <p class="text-sm">
             | Powered By Laravel</p>
