@@ -21,6 +21,6 @@
         </div>
     </div>
     <footer class="py-4 bg-[#1f2533] text-center text-gray-400 border-t border-gray-600">
-    <p class="text-sm">Created By <a href="https://acewebdesign.co.za">Ace Web Design</a> | Powered By Laravel</p>
+    <p class="text-sm">Created By <a href="https://acewebdesign.co.za" target="_blank">Ace Web Design</a> | Powered By Laravel</p>
 </footer>
 </footer>
