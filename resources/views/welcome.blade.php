@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- Hero --}}
     @include('components.hero-section', [
-        'bg' => asset('assets/Home_Hero_BG.jpg'),
+        'bg' => asset('assets/Home_Hero_BG.webp'),
         'button1' => [
             'component' => 'components.button',
             'href' =>
