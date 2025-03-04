@@ -41,7 +41,7 @@
                     <p class="text-gray-700 mb-1">Email: {{ $reservation->email }}</p>
                     <p class="text-gray-700 mb-1">Phone: {{ $reservation->phone }}</p>
                     <p class="text-gray-700 mb-1">Year Group: {{ $reservation->class_of ?? '2010' }}</p>
-                    <p class="text-gray-700 mb-4">Paid: {{ $reservation->is_paid ? 'Yes' : 'No' }}</p>
+                    <p class="text-gray-700 mb-4">Attending: {{ $reservation->is_attending ? 'Yes' : 'No' }}</p>
                     <div class="flex justify-between">
                         <a href="{{ route('reservations.edit', $reservation->id) }}"
                             class="text-blue-500 hover:text-blue-700">
@@ -67,7 +67,7 @@
                         <th scope="col" class="px-6 py-3">Email</th>
                         <th scope="col" class="px-6 py-3">Phone</th>
                         <th scope="col" class="px-6 py-3">Year Group</th>
-                        <th scope="col" class="px-6 py-3">Paid</th>
+                        <th scope="col" class="px-6 py-3">Attending</th>
                         <th scope="col" class="px-6 py-3">Actions</th>
                     </tr>
                 </thead>
@@ -80,7 +80,7 @@
                             <td class="px-6 py-4" data-label="Email">{{ $reservation->email }}</td>
                             <td class="px-6 py-4" data-label="Phone">{{ $reservation->phone }}</td>
                             <td class="px-6 py-4" data-label="Year Group">{{ $reservation->class_of ?? '2010' }}</td>
-                            <td class="px-6 py-4" data-label="Paid">{{ $reservation->is_paid ? 'Yes' : 'No' }}</td>
+                            <td class="px-6 py-4" data-label="Paid">{{ $reservation->is_attending ? 'Yes' : 'No' }}</td>
                             <td class="px-6 py-4 space-x-2">
                                 <a href="{{ route('reservations.edit', $reservation->id) }}"
                                     class="text-blue-500 hover:text-blue-700">
