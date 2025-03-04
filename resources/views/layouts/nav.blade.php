@@ -46,7 +46,7 @@
                         <li><a href="/projects"
                                 class="{{ request()->is('projects') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Projects</a>
                         </li>
-                        <li><a href="/events"
+                        <li><a href="{{ route('events.indexAdmin') }}"
                                 class="{{ request()->is('events') ? 'text-white border-b-2 font-bold' : '' }} hover:border-b-2 hover:transition-colors hover:text-[#DE2413]">Events</a>
                         </li>
                         <li><a href="/reservations"
@@ -109,7 +109,7 @@
                                 class="block w-full px-4 py-2 hover:bg-gray-700 hover:text-[#DE2413]">Projects</a>
                         </li>
                         <li>
-                            <a href="/events"
+                            <a href="{{ route('events.create') }}"
                                 class="block w-full px-4 py-2 hover:bg-gray-700 hover:text-[#DE2413]">Events</a>
                         </li>
                         <li>

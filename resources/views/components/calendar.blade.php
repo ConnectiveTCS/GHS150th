@@ -33,8 +33,16 @@
         <!-- Calendar cells will be generated with JavaScript -->
     </div>
 
-    <!-- Event Details -->
+    <!-- Event Details with Gallery -->
     <div id="eventDetails" class="mt-8 bg-white rounded-lg p-6 shadow-lg hidden">
+        <!-- Event Image Gallery -->
+        <div id="eventGallery" class="mb-6 hidden">
+            <div class="relative w-full overflow-hidden rounded-lg" style="max-height: 400px;">
+                <img id="eventImage" src="" alt="Event image" class="w-full h-auto object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+        </div>
+
         <h3 id="eventTitle" class="text-xl font-bold mb-2"></h3>
         <p id="eventDate" class="text-gray-600 mb-2"></p>
         <p id="eventLocation" class="text-gray-600 mb-2"></p>
@@ -169,8 +177,27 @@
                 // Description text
                 document.getElementById('eventDescription').textContent = event.description || '';
 
+                // Image gallery
+                const galleryContainer = document.getElementById('eventGallery');
+                const eventImage = document.getElementById('eventImage');
+
+                if (event.image) {
+                    // If there's an image path, show the gallery
+                    eventImage.src = `/storage/${event.image}`;
+                    galleryContainer.classList.remove('hidden');
+                } else {
+                    // Hide the gallery if no image
+                    galleryContainer.classList.add('hidden');
+                }
+
                 // Show the details panel
                 detailsPanel.classList.remove('hidden');
+
+                // Scroll to event details
+                detailsPanel.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         }
     });

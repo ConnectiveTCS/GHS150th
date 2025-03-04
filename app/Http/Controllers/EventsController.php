@@ -21,13 +21,34 @@ class EventsController extends Controller
                 'event_title' => $event->event_name,
                 'event_theme' => 'red', // Use your brand color
                 'description' => $event->event_description,
-                'location' => $event->event_location
+                'location' => $event->event_location,
+                'image' => $event->event_image,
             ];
         });
 
         return view('programme.index', [
             'events' => $formattedEvents
         ]);
+    }
+
+    public function indexAdmin()
+    {
+        Log::info('EventsController.index called');
+        $events = Events::all();
+
+        // Transform events to the format expected by the calendar component
+        $formattedEvents = $events->map(function ($event) {
+            return [
+                'event_date' => $event->event_date,
+                'event_title' => $event->event_name,
+                'event_theme' => 'red', // Use your brand color
+                'description' => $event->event_description,
+                'location' => $event->event_location,
+                'image' => $event->event_image,
+            ];
+        });
+
+        return view('events.index', compact('events', 'formattedEvents'));
     }
 
     public function programme()
@@ -68,9 +89,20 @@ class EventsController extends Controller
             'event_date'        => 'required|date',
             'event_location'    => 'nullable|string|max:255',
             'event_image'       => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
+            'event_additional_images' => 'array',
+            'event_additional_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
+
         ]);
         if ($request->hasFile('event_image')) {
             $data['event_image'] = $request->file('event_image')->store('events', 'public');
+        }
+        // Handle additional images
+        if ($request->hasFile('event_additional_images')) {
+            $additionalImages = [];
+            foreach ($request->file('event_additional_images') as $image) {
+                $additionalImages[] = $image->store('events', 'public');
+            }
+            $data['event_additional_images'] = $additionalImages;
         }
         Events::create($data);
         // dd($data);
@@ -101,10 +133,21 @@ class EventsController extends Controller
             'event_date'        => 'required|date',
             'event_location'    => 'nullable|string|max:255',
             'event_image'       => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
+            'event_additional_images' => 'array',
+            'event_additional_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
         ]);
         if ($request->hasFile('event_image')) {
             $data['event_image'] = $request->file('event_image')->store('events', 'public');
         }
+        // Handle additional images
+        if ($request->hasFile('event_additional_images')) {
+            $additionalImages = [];
+            foreach ($request->file('event_additional_images') as $image) {
+                $additionalImages[] = $image->store('events', 'public');
+            }
+            $data['event_additional_images'] = $additionalImages;
+        }
+
         $event->update($data);
         return redirect()->route('events.index');
     }

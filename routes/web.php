@@ -97,8 +97,8 @@ Route::middleware('auth')->group(function () {
 
     // Events CRUD routes
     Route::resource('/events', App\Http\Controllers\EventsController::class)->middleware('can:admin-access');
+    // Add the missing route for events.indexAdmin
+    Route::get('/events/admin/index', [EventsController::class, 'indexAdmin'])->name('events.indexAdmin')->middleware('can:admin-access');
 });
-
-
 
 require __DIR__ . '/auth.php';

@@ -45,6 +45,12 @@
                 <input type="file" id="event_image" name="event_image" accept="image/*"
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
+            <!-- Event Additional Images -->
+            <div class="mb-4">
+                <label for="event_additional_images" class="block text-sm font-medium text-gray-700">Additional Images</label>
+                <input type="file" id="event_additional_images" name="event_additional_images" accept="image/*"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" multiple>
+            </div>
             <div class="mt-6">
                 <button type="submit"
                     class="w-full bg-black text-white px-4 py-2 rounded hover:bg-slate-600">

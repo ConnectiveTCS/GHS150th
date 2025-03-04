@@ -12,6 +12,7 @@ class Events extends Model
         'event_description',
         'event_date',
         'event_location',
-        'event_image'
+        'event_image',
+        'event_additional_images'
     ];
 }
