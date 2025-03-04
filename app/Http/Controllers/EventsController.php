@@ -13,7 +13,21 @@ class EventsController extends Controller
     {
         Log::info('EventsController.index called');
         $events = Events::all();
-        return view('events.index', compact('events'));
+
+        // Transform events to the format expected by the calendar component
+        $formattedEvents = $events->map(function ($event) {
+            return [
+                'event_date' => $event->event_date,
+                'event_title' => $event->event_name,
+                'event_theme' => 'red', // Use your brand color
+                'description' => $event->event_description,
+                'location' => $event->event_location
+            ];
+        });
+
+        return view('programme.index', [
+            'events' => $formattedEvents
+        ]);
     }
 
     public function programme()

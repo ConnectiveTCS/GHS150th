@@ -19,7 +19,6 @@
             'hiddenBTN2' => 'block',
         ],
         'h1' => 'A Celebration 150 Years in the Making',
-        // 'p' => 'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.'
         'hideImg' => 'hidden',
         'topPHeading' => 'The Official Programme',
         'p' =>
@@ -32,12 +31,12 @@
         </h1>
 
         {{-- Projects Container --}}
-        <div class="flex flex-col gap-4 bg-[#262A40] w-full mt-8 rounded-[20px] p-8">
-            <!-- Tabs -->
-
-            @include('components.calendar')
+        <div class="flex flex-col gap-4 bg-[#DE2413] w-full mt-8 rounded-[20px] p-8">
+            <!-- Calendar component with events from database -->
+            @include('components.calendar', ['events' => $events ?? []])
         </div>
     </section>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('button');

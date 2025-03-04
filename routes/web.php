@@ -26,7 +26,7 @@ Route::get('/club_150', function () {
     return view('club_150.index', compact('projectCards'));
 });
 // Programme
-Route::get('/programme', [EventsController::class, 'programme'])->name('programme');
+Route::get('/programme', [EventsController::class, 'index'])->name('programme');
 Route::get('/programme/pdf', [ProgrammeController::class, 'downloadPdf'])->name('programme.pdf');
 Route::get('/pdftest', function () {
     $events = \App\Models\Events::all();
