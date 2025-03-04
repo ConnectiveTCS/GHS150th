@@ -201,7 +201,7 @@
                             <label class="block font-semibold text-gray-700">Reference:</label>
                             <div class="flex items-center">
                                 <input type="text"
-                                    value="{{ $reference ?? 'GHS150 [Your Name] eg. GHS150 John Doe' }}"
+                                    value="{{ $reference ?? '[Your Name] [Year Group] eg. Jane Doe 2010' }}"
                                     class="flex-1 bg-gray-100 border-none rounded-l p-2" readonly>
                             </div>
                         </div>

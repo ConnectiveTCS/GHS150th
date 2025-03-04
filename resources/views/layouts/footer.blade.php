@@ -1,10 +1,10 @@
 <footer>
     <div class="relative">
         {{-- Centered Badge Image --}}
-        <div class="absolute w-full justify-center md:top-[45%] top-[35%] hidden md:flex">
+        <div class="absolute w-full justify-center md:top-[40%] top-[35%] hidden md:flex">
             <img src="{{ asset('assets/GHS_Badge.webp') }}"
                 srcset="{{ asset('assets/GHS_Badge_small.webp') }} 48w, {{ asset('assets/GHS_Badge.webp') }} 96w"
-                sizes="(max-width: 768px) 48px, 96px" alt="GHS Badge" class="h-12 w-12 md:h-20 md:w-20 z-20">
+                sizes="(max-width: 768px) 48px, 96px" alt="GHS Badge" class="h-12 w-auto md:h-24 md:w-auto z-20">
         </div>
 
         {{-- Main Grid --}}
