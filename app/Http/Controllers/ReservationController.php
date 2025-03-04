@@ -59,8 +59,8 @@ class ReservationController extends Controller
         Mail::to($reservation->email)->send(new UserReservationMail($reservation));
 
         // Send email to admin
-        // Mail::to('oqa@qtghs.co.za')->send(new AdminReservationMail($reservation));
-        Mail::to('kylem.mcpherson@outlook.com')->send(new AdminReservationMail($reservation));
+        Mail::to('oqa@qtghs.co.za')->send(new AdminReservationMail($reservation));
+        // Mail::to('kylem.mcpherson@outlook.com')->send(new AdminReservationMail($reservation));
 
         return redirect('/');
     }
