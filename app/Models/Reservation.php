@@ -14,5 +14,6 @@ class Reservation extends Model
         'phone',
         'is_attending',
         'is_paid',
+        'class_of'
     ];
 }

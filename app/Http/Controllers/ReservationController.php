@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log; // added
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserReservationMail;
+use App\Mail\AdminReservationMail;
 
 class ReservationController extends Controller
 {
@@ -47,9 +50,17 @@ class ReservationController extends Controller
         $reservation->phone = $request->phone;
         $reservation->is_attending = $request->is_attending;
         $reservation->is_paid = $request->is_paid;
+        $reservation->class_of = $request->class_of;
         // Set the authenticated user's id for the reservation
         // $reservation->user_id = Auth::user()->id;
         $reservation->save();
+
+        // Send email to user
+        Mail::to($reservation->email)->send(new UserReservationMail($reservation));
+
+        // Send email to admin
+        // Mail::to('oqa@qtghs.co.za')->send(new AdminReservationMail($reservation));
+        Mail::to('kylem.mcpherson@outlook.com')->send(new AdminReservationMail($reservation));
 
         return redirect('/');
     }
@@ -64,6 +75,7 @@ class ReservationController extends Controller
         $reservation->phone = $request->phone;
         $reservation->is_attending = $request->is_attending;
         $reservation->is_paid = $request->is_paid;
+        $reservation->class_of = $request->class_of;
         $reservation->save();
         return redirect()->route('reservations.index');
     }

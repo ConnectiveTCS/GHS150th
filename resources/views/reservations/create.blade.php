@@ -27,16 +27,18 @@
                 <input type="text" id="phone" name="phone" required
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
+            <!-- Year Group -->
+            <div class="mb-4">
+                <label for="class_of" class="block text-sm font-medium text-gray-700">Year Group</label>
+                <input type="number" id="class_of" name="class_of" required
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" min="1900" max="2099" maxlength="4" placeholder="YYYY">
+            </div>
             <!-- Is Attending -->
             <div class="mb-4 flex items-center">
                 <input type="checkbox" id="is_attending" name="is_attending" value="1" class="mr-2">
                 <label for="is_attending" class="text-sm text-gray-700">Attending</label>
             </div>
-            <!-- Is Paid -->
-            <div class="mb-4 flex items-center">
-                <input type="checkbox" id="is_paid" name="is_paid" value="1" class="mr-2">
-                <label for="is_paid" class="text-sm text-gray-700">Paid</label>
-            </div>
+            
             <div class="mt-6">
                 <button type="submit" class="w-full bg-black text-white px-4 py-2 rounded hover:bg-slate-600">
                     Create Reservation
