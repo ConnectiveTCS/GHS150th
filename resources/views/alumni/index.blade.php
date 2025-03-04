@@ -4,7 +4,7 @@
         'bg' => asset('assets/AlumniBG.webp'),
         'button1' => [
             'component' => 'components.button',
-            'href' => route('alumni.create'), // Fixed: direct call to route()
+            'href' => 'https://docs.google.com/forms/d/e/1FAIpQLScth9SDgHCCNwjlAC4PqJeh64Oc76nJ3MOD5fXj2BFLwRNrfw/viewform', // Fixed: direct call to route()
             'content' => 'Join the Alumni Network',
             'bgColor' => '#DE2413',
             'mt' => 2,
@@ -12,7 +12,7 @@
         ],
         'button2' => [
             'component' => 'components.button',
-            'href' => 'https://www.facebook.com/qtghs',
+            'href' => 'mailto:oqa@qtghs.co.za',
             'content' => 'Share Your Story',
             'bgColor' => '#262A40',
             'mt' => 2,
@@ -22,8 +22,9 @@
         // 'p' => 'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.'
         'hideImg' => 'hidden',
         'topPHeading' => 'The GHS Alumni Community',
+        'donateBG' => 'bg-black',
         'p' =>
-            'As part of the Girls High School family, your journey doesn’t end after graduation. The friendships, experiences, and values you gained continue for a lifetime. Welcome back!',
+            'As part of the Girls’ High School family, your journey doesn’t end after graduation. The friendships, experiences, and values you gained continue for a lifetime. Welcome back!',
     ])
     {{-- Alumni Main --}}
     <section
@@ -34,7 +35,7 @@
                 Our alumni network is more than just a directory – it’s a lifelong sisterhood. By staying connected, you
                 gain access to exclusive events, networking opportunities, and a chance to give back to the school that
                 shaped you.
-                <br>-Veritas Et Vertas-
+                <br>-Veritas et Virtus-
             </p>
         </div>
     </section>
@@ -47,7 +48,7 @@
             Sign up today to receive exclusive alumni newsletters, event invites, and school updates. Reconnect with old
             friends, make new ones, and stay close to the school that helped shape you.
         </p>
-        <a href="{{ $href ?? route('alumni.create') }}"
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScth9SDgHCCNwjlAC4PqJeh64Oc76nJ3MOD5fXj2BFLwRNrfw/viewform"
             class="py-2 px-4 bg-[{{ $bgColor ?? '#DE2413' }}] text-white hover:bg-white hover:text-[#DE2413] transition-all mt-{{ $mt ?? 1 }}">Join
             the Alumni Network</a>
     </section>

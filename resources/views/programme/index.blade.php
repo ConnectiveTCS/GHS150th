@@ -23,7 +23,7 @@
         'hideImg' => 'hidden',
         'topPHeading' => 'The Official Programme',
         'p' =>
-            'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.',
+            'Explore the exciting lineup of events designed to honour our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.',
     ])
     {{-- Programme --}}
     <section class="bg-white flex flex-col justify-start items-start px-[10px] md:px-[50px] py-[100px]"

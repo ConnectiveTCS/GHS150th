@@ -9,7 +9,7 @@
         <img src="{{ asset('assets/150Badge.webp') }}"
             srcset="{{ asset('assets/150Badge_small.webp') }} 150w, {{ asset('assets/150Badge.webp') }} 300w"
             sizes="(max-width: 768px) 100px, 150px" alt="150 Badge" width="290" height="150"
-            class="md:min-h-20 h-[150px] md:max-h-[150px] {{ $hideImg ?? 'display:block' }}">
+            class="md:min-h-32 h-[150px] md:h-60 w-auto {{ $hideImg ?? 'display:block' }}">
         <div class="{{ $hidden ?? 'flex' }} flex-row items-center gap-2 " style=" ">
             <hr style="border: 2px solid red;" class="md:min-w-[100px] min-w-4">
             <p>{{ $topPHeading ?? 'Become a Part of Our Legacy' }}</p>
@@ -30,7 +30,7 @@
                 @include($button2['component'], $button2)
             @endif
             <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button"
-                class="py-2 px-4 bg-transparent text-red-500 hover:rounded-none hover:bg-white hover:text-[#DE2413] transition-all mt-{{ $mt ?? 1 }} {{ $hiddenBTN ?? 'hidden' }} {{ $rounded ?? 'rounded-none' }}">{{ $popupBTN ?? 'Donate' }}</button>
+                class="py-2 px-4 {{ $donateTextColor ?? 'text-red-500' }} hover:rounded-none hover:bg-white hover:text-[#DE2413] transition-all {{ $donateBG ?? 'bg-transparent' }} mt-{{ $mt ?? 1 }} {{ $hiddenBTN ?? 'hidden' }} {{ $rounded ?? 'rounded-none' }}">{{ $popupBTN ?? 'Donate' }}</button>
         </div>
     </div>
 </section>
