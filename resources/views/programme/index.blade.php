@@ -31,9 +31,15 @@
         </h1>
 
         {{-- Projects Container --}}
-        <div class="flex flex-col gap-4 bg-[#DE2413] w-full mt-8 rounded-[20px] p-8">
+        {{-- Desktop --}}
+        <div class="hidden md:flex md:flex-col md:gap-4 md:bg-[#DE2413] md:w-full md:mt-8 md:rounded-[20px] md:p-8">
             <!-- Calendar component with events from database -->
             @include('components.calendar', ['events' => $events ?? []])
+        </div>
+        {{-- Mobile --}}
+        <div class="md:hidden flex flex-col gap-4 bg-[#DE2413] w-full mt-8 rounded-[20px] p-8">
+            <!-- Calendar component with events from database -->
+            @include('components.list', ['events' => $events ?? []])
         </div>
     </section>
 
