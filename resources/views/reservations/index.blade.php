@@ -14,7 +14,7 @@
                     </h3>
                     <p class="text-gray-700 mb-1">Email: {{ $reservation->email }}</p>
                     <p class="text-gray-700 mb-1">Phone: {{ $reservation->phone }}</p>
-                    <p class="text-gray-700 mb-1">Attending: {{ $reservation->is_attending ? 'Yes' : 'No' }}</p>
+                    <p class="text-gray-700 mb-1">Year Group: {{ $reservation->class_of ?? '2010'}}</p>
                     <p class="text-gray-700 mb-4">Paid: {{ $reservation->is_paid ? 'Yes' : 'No' }}</p>
                     <div class="flex justify-between">
                         <a href="{{ route('reservations.edit', $reservation->id) }}"
