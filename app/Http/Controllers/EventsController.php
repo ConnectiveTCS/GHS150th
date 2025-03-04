@@ -23,6 +23,7 @@ class EventsController extends Controller
                 'description' => $event->event_description,
                 'location' => $event->event_location,
                 'image' => $event->event_image,
+                'additional_images' => $event->event_additional_images,
             ];
         });
 
@@ -45,6 +46,7 @@ class EventsController extends Controller
                 'description' => $event->event_description,
                 'location' => $event->event_location,
                 'image' => $event->event_image,
+                'additional_images' => $event->event_additional_images,
             ];
         });
 

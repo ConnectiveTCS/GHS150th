@@ -15,4 +15,9 @@ class Events extends Model
         'event_image',
         'event_additional_images'
     ];
+
+    // Cast the additional images to array when retrieving from database
+    protected $casts = [
+        'event_additional_images' => 'array',
+    ];
 }

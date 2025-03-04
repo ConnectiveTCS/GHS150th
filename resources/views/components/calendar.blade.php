@@ -5,7 +5,7 @@
         <button id="prevMonth" class="px-4 py-2 bg-[#DE2413] text-white rounded-lg hover:bg-red-700 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd"
-                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 011.414 0z"
                     clip-rule="evenodd" />
             </svg>
         </button>
@@ -37,9 +37,15 @@
     <div id="eventDetails" class="mt-8 bg-white rounded-lg p-6 shadow-lg hidden">
         <!-- Event Image Gallery -->
         <div id="eventGallery" class="mb-6 hidden">
-            <div class="relative w-full overflow-hidden rounded-lg" style="max-height: 400px;">
-                <img id="eventImage" src="" alt="Event image" class="w-full h-auto object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <!-- Main Gallery Container -->
+            <div class="relative">
+                <!-- Main Image Display -->
+                <div id="mainImageContainer" class="w-full overflow-hidden rounded-lg mb-4">
+                    <img id="eventImage" src="" alt="Event image" class="w-full h-auto object-cover">
+                </div>
+
+                <!-- Thumbnails Container for Additional Images -->
+                <div id="additionalImagesContainer" class="grid grid-cols-5 gap-3 mt-4"></div>
             </div>
         </div>
 
@@ -180,9 +186,54 @@
                 // Image gallery
                 const galleryContainer = document.getElementById('eventGallery');
                 const eventImage = document.getElementById('eventImage');
+                const additionalImagesContainer = document.getElementById('additionalImagesContainer');
 
-                if (event.image) {
-                    // If there's an image path, show the gallery
+                // Clear any existing thumbnails
+                additionalImagesContainer.innerHTML = '';
+
+                // Check if event has additional images
+                if (event.additional_images && Array.isArray(event.additional_images) && event.additional_images
+                    .length > 0) {
+                    // Set the main image to the first additional image
+                    eventImage.src = `/storage/${event.additional_images[0]}`;
+
+                    // Create thumbnails for all additional images
+                    event.additional_images.forEach((imagePath, index) => {
+                        const thumbnail = document.createElement('div');
+                        thumbnail.className =
+                            'thumbnail-container cursor-pointer border-2 border-transparent hover:border-red-500 transition-all rounded overflow-hidden';
+
+                        if (index === 0) {
+                            thumbnail.classList.add('border-red-500'); // Highlight the first thumbnail
+                        }
+
+                        const thumbImg = document.createElement('img');
+                        thumbImg.src = `/storage/${imagePath}`;
+                        thumbImg.alt = `Event image ${index + 1}`;
+                        thumbImg.className = 'w-full h-16 object-cover';
+                        thumbImg.dataset.imagePath = imagePath;
+
+                        // Add the click event handler
+                        thumbnail.onclick = function() {
+                            // Update main image
+                            eventImage.src = `/storage/${imagePath}`;
+
+                            // Update active thumbnail styling
+                            document.querySelectorAll(
+                                '#additionalImagesContainer .thumbnail-container').forEach(
+                            el => {
+                                el.classList.remove('border-red-500');
+                            });
+                            thumbnail.classList.add('border-red-500');
+                        };
+
+                        thumbnail.appendChild(thumbImg);
+                        additionalImagesContainer.appendChild(thumbnail);
+                    });
+
+                    galleryContainer.classList.remove('hidden');
+                } else if (event.image) {
+                    // If no additional images but has main image, show it
                     eventImage.src = `/storage/${event.image}`;
                     galleryContainer.classList.remove('hidden');
                 } else {
