@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- Hero --}}
     @include('components.hero-section', [
-        'bg' => asset('assets/Pillar_ProjectBG.webp'),
+        'bg' => asset('assets/Power23.jpg'),
         'button1' => [
             'component' => 'components.button',
             'href' => route('programme.pdf'),
