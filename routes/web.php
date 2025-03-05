@@ -67,6 +67,12 @@ Route::post('/reserve', [ReservationController::class, 'store'])->name('reservat
 Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit']);
 Route::put('/reservations/{id}', [ReservationController::class, 'update']);
 
+// Engrave
+Route::resource('/engrave', App\Http\Controllers\EngraveController::class)->except(['destroy']);
+
+// SharStory
+Route::resource('/sharstory', App\Http\Controllers\SharStoryController::class)->except(['destroy']);
+
 // Admin Access
 
 Route::middleware('auth')->group(function () {
@@ -99,6 +105,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('/events', App\Http\Controllers\EventsController::class)->middleware('can:admin-access');
     // Add the missing route for events.indexAdmin
     Route::get('/events/admin/index', [EventsController::class, 'indexAdmin'])->name('events.indexAdmin')->middleware('can:admin-access');
+
+    // Engrave CRUD routes
+    Route::resource('/engrave', App\Http\Controllers\EngraveController::class)->except('create', 'store', 'edit', 'update')->middleware('can:admin-access');
+
+    // SharStory CRUD routes
+    Route::resource('/sharstory', App\Http\Controllers\SharStoryController::class)->except('create', 'store', 'edit', 'update')->middleware('can:admin-access');
 });
 
 require __DIR__ . '/auth.php';
