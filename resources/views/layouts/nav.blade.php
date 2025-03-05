@@ -77,8 +77,8 @@
             @endauth
         </div>
         <div class="hidden md:flex flex-col items-center gap-2">
-            <a href="/register"
-                class="bg-[#DE2413] text-white px-4 py-2 w-full text-center hover:bg-white hover:text-[#DE2413] rounded-md transition-all">Register</a>
+            {{-- <a href="/register"
+                class="bg-[#DE2413] text-white px-4 py-2 w-full text-center hover:bg-white hover:text-[#DE2413] rounded-md transition-all">Register</a> --}}
             <a href="/login"
                 class="bg-[#262A40] text-white px-4 py-2 w-full text-center hover:bg-white hover:text-[#DE2413] rounded-md transition-all border border-white">Login</a>
         </div>
