@@ -91,7 +91,7 @@
             <li><a href="/club_150" class="block hover:text-[#DE2413]">Club 150</a></li>
             <li><a href="/programme" class="block hover:text-[#DE2413]">Programme</a></li>
             <li><a href="/pillar_project" class="block hover:text-[#DE2413]">Pillar Project</a></li>
-            <li><a href="/alumni" class="block hover:text-[#DE2413]">Alumni</a></li>
+            <li><a href="/alumnis" class="block hover:text-[#DE2413]">Alumni</a></li>
         </ul>
         @auth
             <div class="mt-4 border-t border-gray-600 pt-4">
