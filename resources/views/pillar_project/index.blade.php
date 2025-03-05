@@ -12,7 +12,7 @@
         ],
         'button2' => [
             'component' => 'components.button',
-            'href' => 'storage/public\PillarMap.jpg',
+            'href' => 'assets\PillarMap.jpg',
             'content' => 'Downloade the Brochure',
             'bgColor' => '#DE2413',
             'mt' => 2,
