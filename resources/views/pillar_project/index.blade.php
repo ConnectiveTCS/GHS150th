@@ -17,7 +17,7 @@
             'bgColor' => '#DE2413',
             'mt' => 2,
             'hiddenBTN2' => 'block',
-            'download' => '',
+            'download' => 'download',
         ],
         'h1' => 'Join the Pillar Project',
         // 'p' => 'Explore the exciting lineup of events designed to honor our past, celebrate the present, and inspire the future. From networking with alumni to reliving treasured memories, there’s something for everyone.'
