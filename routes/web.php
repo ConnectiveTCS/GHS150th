@@ -71,7 +71,7 @@ Route::put('/reservations/{id}', [ReservationController::class, 'update']);
 Route::resource('/engrave', App\Http\Controllers\EngraveController::class)->except(['destroy']);
 
 // SharStory
-Route::resource('/sharstory', App\Http\Controllers\ShareStoryController::class)->except(['destroy']);
+Route::resource('/sharestory', App\Http\Controllers\ShareStoryController::class)->except(['destroy']);
 
 // Admin Access
 
@@ -110,7 +110,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/engrave', App\Http\Controllers\EngraveController::class)->except('create', 'store', 'edit', 'update')->middleware('can:admin-access');
 
     // SharStory CRUD routes
-    Route::resource('/sharstory', App\Http\Controllers\ShareStoryController::class)->except('create', 'store', 'edit', 'update')->middleware('can:admin-access');
+    Route::resource('/sharestory', App\Http\Controllers\ShareStoryController::class)->except('create', 'store', 'edit', 'update')->middleware('can:admin-access');
 });
 
 require __DIR__ . '/auth.php';

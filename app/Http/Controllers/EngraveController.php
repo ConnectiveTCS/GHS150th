@@ -38,7 +38,7 @@ class EngraveController extends Controller
 
         // Send email to admin
         Mail::to('oqa@qtghs.co.za')->send(new AdminEngrave($engrave));
-        return redirect('/engrave')->with('success', 'Engrave has been added');
+        return redirect('/pillar_project')->with('success', 'Engrave has been added');
     }
 
     public function create()
