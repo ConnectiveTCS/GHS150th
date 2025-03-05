@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SharStory extends Model
+class ShareStory extends Model
 {
     //
     protected $primaryKey = 'id';

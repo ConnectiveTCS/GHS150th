@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ShareStory;
 use App\Models\SharStory;
 use Illuminate\Http\Request;
 
-class SharStoryController extends Controller
+class ShareStoryController extends Controller
 {
     //
     
@@ -24,7 +25,7 @@ class SharStoryController extends Controller
             'message' => 'required'
         ]);
 
-        $sharstory = new SharStory([
+        $sharstory = new ShareStory([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'phone' => $request->get('phone'),
@@ -43,7 +44,7 @@ class SharStoryController extends Controller
 
     public function edit($id)
     {
-        $sharstory = SharStory::find($id);
+        $sharstory = ShareStory::find($id);
         return view('sharstory.edit', compact('sharstory'));
     }
 
@@ -57,7 +58,7 @@ class SharStoryController extends Controller
             'message' => 'required'
         ]);
 
-        $sharstory = SharStory::find($id);
+        $sharstory = ShareStory::find($id);
         $sharstory->name = $request->get('name');
         $sharstory->email = $request->get('email');
         $sharstory->phone = $request->get('phone');
@@ -69,7 +70,7 @@ class SharStoryController extends Controller
 
     public function destroy($id)
     {
-        $sharstory = SharStory::find($id);
+        $sharstory = ShareStory::find($id);
         $sharstory->delete();
         return redirect('/sharstory')->with('success', 'SharStory has been deleted');
     }

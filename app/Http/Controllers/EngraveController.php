@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminEngrave;
+use App\Mail\UserEngrave;
 use App\Models\Engrave;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EngraveController extends Controller
 {
@@ -30,6 +33,11 @@ class EngraveController extends Controller
         ]);
 
         $engrave->save();
+        // Send email to user
+        Mail::to($engrave->email)->send(new UserEngrave($engrave));
+
+        // Send email to admin
+        Mail::to('oqa@qtghs.co.za')->send(new AdminEngrave($engrave));
         return redirect('/engrave')->with('success', 'Engrave has been added');
     }
 

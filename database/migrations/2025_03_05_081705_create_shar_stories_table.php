@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shar_stories', function (Blueprint $table) {
+        Schema::create('share_stories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shar_stories');
+        Schema::dropIfExists('share_stories');
     }
 };
