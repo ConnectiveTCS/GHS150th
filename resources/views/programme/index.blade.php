@@ -4,11 +4,12 @@
         'bg' => asset('assets/ProgrammeBG.webp'),
         'button1' => [
             'component' => 'components.button',
-            'href' => route('programme.pdf'),
+            'href' => asset('assets/QTGHS150LaunchProgramme.pdf'),
             'content' => 'Download Full Programme',
             'bgColor' => '#DE2413',
             'mt' => 2,
             'hiddenBTN2' => 'block',
+            'download' => 'download',
         ],
         'button2' => [
             'component' => 'components.button',
