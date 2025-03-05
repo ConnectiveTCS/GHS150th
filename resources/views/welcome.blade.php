@@ -38,7 +38,7 @@
             </h2>
             <p class="text-base sm:text-xl tangerine-regular md:text-6xl">
                 For 150 years, Girls’ High School has been a beacon of learning, leadership, and legacy. This year, we
-                invite you to celebrate this incredible milestone with us through events that honor our history, our
+                invite you to celebrate this incredible milestone with us through events that honour our history, our
                 people, and our community.
             </p>
         </div>

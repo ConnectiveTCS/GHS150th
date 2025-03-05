@@ -24,7 +24,7 @@
         'hiddenBTN' => 'block',
         'popupBTN' => 'Once Off Payment',
         'p' =>
-            'For 150 years, Girls High School has nurtured generations of leaders, dreamers, and changemakers. This year, as we celebrate our remarkable milestone, we invite you to be part of this historic journey.',
+            'For 150 years, Girls’ High School has nurtured generations of leaders, dreamers, and changemakers. This year, as we celebrate our remarkable milestone, we invite you to be part of this historic journey.',
     ])
     {{-- Programme --}}
     <section class="bg-white flex flex-col justify-start items-start px-[10px] md:px-[50px] py-[100px]"
@@ -32,7 +32,7 @@
         <h1 class="montagu-slab-h1 text-2xl mb:text-4xl mb-2 text-left md:w-[40%]">See Your Contributions in Action –
             Club 150 Projects
         </h1>
-        <p class="text-xl md:text-xl text-pretty md:w-[35%]">Thanks to your generous support, we're transforming Girls
+        <p class="text-xl md:text-xl text-pretty md:w-[35%]">Thanks to your generous support, we're transforming Girls’
             High
             School for future generations. Here’s a look at the projects your donations are making possible.</p>
         {{-- Projects Container --}}

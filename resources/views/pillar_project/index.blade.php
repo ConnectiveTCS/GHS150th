@@ -13,7 +13,7 @@
         'button2' => [
             'component' => 'components.button',
             'href' => 'assets\PillarMap.jpg',
-            'content' => 'Downloade the Brochure',
+            'content' => 'Download the Brochure',
             'bgColor' => '#DE2413',
             'mt' => 2,
             'hiddenBTN2' => 'block',
@@ -47,7 +47,7 @@
                 <p class="text-center mb-3 w-[80%] text-xl">The Pillars of GHS have long been a symbol of
                     strength,
                     unity, and tradition. Through the Pillar
-                    Project, alumni can cement their connection to this legacy with a personalized engraving.
+                    Project, alumni can cement their connection to this legacy with a personalised engraving.
                     Each name
                     represents a story, a journey, a contribution to the school’s 150-year heritage.</p>
                 @include('components.button', [

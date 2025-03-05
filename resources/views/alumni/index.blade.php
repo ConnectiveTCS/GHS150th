@@ -24,7 +24,7 @@
         'topPHeading' => 'The GHS Alumni Community',
         'donateBG' => 'bg-black',
         'p' =>
-            'As part of the Girls’ High School family, your journey doesn’t end after graduation. The friendships, experiences, and values you gained continue for a lifetime. Welcome back!',
+            'As part of the Girls’ High School family, your journey doesn’t end after matric. The friendships, experiences, and values you gained continue for a lifetime. Welcome back!',
     ])
     {{-- Alumni Main --}}
     <section
