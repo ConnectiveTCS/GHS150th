@@ -4,7 +4,7 @@
         'bg' => asset('assets/ProgrammeBG.webp'),
         'button1' => [
             'component' => 'components.button',
-            'href' => asset('assets/QTGHS150LaunchProgramme.pdf'),
+            'href' => asset('assets/updated launch program pdf.pdf'),
             'content' => 'Download Full Programme',
             'bgColor' => '#DE2413',
             'mt' => 2,

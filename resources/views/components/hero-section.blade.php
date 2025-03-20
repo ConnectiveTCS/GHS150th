@@ -6,10 +6,7 @@
     <div
         class="text-black text-center z-20 relative flex flex-col justify-center items-center rounded-md w-full sm:max-w-[50%] text-balance py-2 px-4 sm:px-10 bg-white bg-opacity-80 backdrop-blur shadow-xl">
         <!-- Updated 150Badge image with srcset and sizes -->
-        <img src="{{ asset('assets/150Badge.webp') }}"
-            srcset="{{ asset('assets/150Badge_small.webp') }} 150w, {{ asset('assets/150Badge.webp') }} 300w"
-            sizes="(max-width: 768px) 100px, 150px" alt="150 Badge" width="290" height="150"
-            class="md:min-h-32 h-[150px] md:h-60 w-auto {{ $hideImg ?? 'display:block' }}">
+        <img src="{{ asset('assets/150Badge.webp') }}" class="w-[80%] md:w-[50%] p-0 m*0">
         <div class="{{ $hidden ?? 'flex' }} flex-row items-center gap-2 " style=" ">
             <hr style="border: 2px solid red;" class="md:min-w-[100px] min-w-4">
             <p>{{ $topPHeading ?? 'Become a Part of Our Legacy' }}</p>
