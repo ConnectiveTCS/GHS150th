@@ -13,7 +13,7 @@
         ],
         'button2' => [
             'component' => 'components.button',
-            'href' => '/reservations/create',
+            'href' => 'https://docs.google.com/forms/d/e/1FAIpQLSdVWa2uLXz7U789AY2sdhmVqybNEG8vY6noIo8L7Bg6Vr0dCA/viewform',
             'content' => 'RSVP for Banquet',
             'bgColor' => '#262A40',
             'mt' => 2,

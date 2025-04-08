@@ -18,7 +18,7 @@
             <a href="/pillar_project"
                 class="bg-[#262A40] hover:bg-[#262a40e6] montagu-slab-h1 text-white flex justify-center items-center text-xl py-4 md:text-3xl">Pillar
                 Project</a>
-            <a href="/alumni"
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScth9SDgHCCNwjlAC4PqJeh64Oc76nJ3MOD5fXj2BFLwRNrfw/viewform"
                 class="bg-[#DE2413] hover:bg-[#de2413d3] montagu-slab-h1 text-white flex justify-center items-center text-xl py-4 md:text-3xl">Alumni</a>
         </div>
     </div>
