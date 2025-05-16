@@ -13,8 +13,8 @@
         ],
         'button2' => [
             'component' => 'components.button',
-            'href' => 'https://docs.google.com/forms/d/e/1FAIpQLSdVWa2uLXz7U789AY2sdhmVqybNEG8vY6noIo8L7Bg6Vr0dCA/viewform',
-            'content' => 'RSVP for Banquet',
+            'href' => 'https://qtghs.alumnet.co.za/Event/150-reunion-weekend-tickets',
+            'content' => 'RSVP',
             'bgColor' => '#262A40',
             'mt' => 2,
             'hiddenBTN2' => 'block',
